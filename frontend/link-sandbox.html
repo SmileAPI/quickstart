@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="smileicon32.webp" sizes="32x32">
+    <link rel="icon" href="smileicon192.webp" sizes="192x192">
+    <title>Smile Quick Start</title>
+</head>
+
+<body>
+    <script src="https://cdn.smileapi.io/v1/smile.v1.js"></script>
+    <script type="text/javascript">
+        fetch('http://127.0.0.1:8000/api/create_link_token')
+            .then(data => {
+                console.log(data);
+                const smileLinkModal = new SmileLinkModal({
+                    apiHost: 'https://link-sandbox.smileapi.io',
+                    userToken: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidGVuYW50SWQiOiJtb3ZlZm9yd2FyZCIsInVzZXJJZCI6InJhbmQtMDAyLTAwMi0wMDMiLCJtb2RlIjoiU0FOREJPWCIsImlhdCI6MTUxNjIzOTAyMiwiaXNzIjoic21pbGUtbGluay1pc3N1ZXItMDAxIiwiYSI6ImEifQ.I2utevyYSkpcWYKIyLGvJYZGGLLuqoXwipN2nPe5XNAFCN4o9cB1FGfftU287jghwzjtwz75AKrCtGZtmcenLayE9W51WoAxrI1IkSrX-npRFai-XbpDVIAqBJZnwVhM2OWPsrnZnJLqP9XM3cvxhSIYD5svhWtv7Zm1ORXC6AY',
+
+                    onAccountCreated: ({
+                        accountId,
+                        userId,
+                        linkItemId
+                    }) => {
+                        console.log('Account created: ', accountId, ' User ID:', userId, ' Link Item ID:', linkItemId)
+                    },
+
+                    onAccountConnected: ({
+                        accountId,
+                        userId,
+                        linkItemId
+                    }) => {
+                        console.log('Account connected: ', accountId, ' User ID:', userId, ' Link Item ID:', linkItemId)
+                    },
+
+                    onAccountRemoved: ({
+                        accountId,
+                        userId,
+                        linkItemId
+                    }) => {
+                        console.log('Account removed: ', accountId, ' User ID:', userId, ' Link Item ID:', linkItemId)
+                    },
+
+                    onClose: () => {
+                        console.log('Link closed')
+                    },
+
+                    onTokenExpired: updateToken => {
+                        console.log('Token expired');
+                    }
+                });
+                smileLinkModal.open()
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+
+</html>
