@@ -17,31 +17,31 @@
             .then(data => {
                 console.log(data);
                 const smileLinkModal = new SmileLinkModal({
-                    apiHost: 'https://link.smileapi.io',
-                    userToken: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidGVuYW50SWQiOiJtb3ZlZm9yd2FyZCIsInVzZXJJZCI6InJhbmQtMDAyLTAwMi0wMDMiLCJtb2RlIjoiU0FOREJPWCIsImlhdCI6MTUxNjIzOTAyMiwiaXNzIjoic21pbGUtbGluay1pc3N1ZXItMDAxIiwiYSI6ImEifQ.I2utevyYSkpcWYKIyLGvJYZGGLLuqoXwipN2nPe5XNAFCN4o9cB1FGfftU287jghwzjtwz75AKrCtGZtmcenLayE9W51WoAxrI1IkSrX-npRFai-XbpDVIAqBJZnwVhM2OWPsrnZnJLqP9XM3cvxhSIYD5svhWtv7Zm1ORXC6AY',
+                    apiHost: 'https://link-sandbox.smileapi.io', // use https://link.smileapi.io to go live with real users
+                    userToken: '',
 
                     onAccountCreated: ({
                         accountId,
                         userId,
-                        linkItemId
+                        providerId
                     }) => {
-                        console.log('Account created: ', accountId, ' User ID:', userId, ' Link Item ID:', linkItemId)
+                        console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
                     onAccountConnected: ({
                         accountId,
                         userId,
-                        linkItemId
+                        providerId
                     }) => {
-                        console.log('Account connected: ', accountId, ' User ID:', userId, ' Link Item ID:', linkItemId)
+                        console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
                     onAccountRemoved: ({
                         accountId,
                         userId,
-                        linkItemId
+                        providerId
                     }) => {
-                        console.log('Account removed: ', accountId, ' User ID:', userId, ' Link Item ID:', linkItemId)
+                        console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
                     onClose: () => {
