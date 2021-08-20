@@ -14,12 +14,18 @@
     <script src="https://cdn.smileapi.io/v1/smile.v1.js"></script>
     <script type="text/javascript">
         fetch('http://127.0.0.1:8000/api/create_link_token')
+            .then(response => response.json())
             .then(data => {
-                console.log(data);
+                console.log('data', data);
                 const smileLinkModal = new SmileLinkModal({
-                    apiHost: 'https://link-sandbox.smileapi.io', // use https://link.smileapi.io to go live with real users
-                    userToken: '',
-
+                    /**
+                     * The Link API Host, Sandbox and Production mode are using different API hosts.
+                     */
+                    apiHost: 'https://link-sandbox.smileapi.io',
+                    /**
+                     * User token passed from your backend service which obtained from Smile API.
+                     */
+                    userToken: data.accessToken,
                     onAccountCreated: ({
                         accountId,
                         userId,
