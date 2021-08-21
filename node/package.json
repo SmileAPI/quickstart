@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git@gitlab.com:smileapi/sdk/quick-start.git"
   },
-  "author": "",
+  "author": "www.getsmileapi.com",
   "license": "ISC",
   "dependencies": {
     "bent": "^7.3.12",

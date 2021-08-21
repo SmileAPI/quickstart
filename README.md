@@ -18,5 +18,5 @@ npm install --global yarn
 yarn install
 node index.js
 ```
-3. Open http://127.0.0.1:8000 in your web browser
-4. Thant's it.
+3. Open http://127.0.0.1:8000 in your web browser, you can start the link flow.
+4. That's it.
