@@ -10,7 +10,7 @@
 1. have node and npm installed
 
 ### Setup
-1. Create a new .env file under node directory, set API_KEY_ID, API_KEY_SECRET and Mode.
+1. Create a new .env file under ./node directory, set API_KEY_ID, API_KEY_SECRET and API_HOST.
 2. Run following codes:
 ```
 cd node
