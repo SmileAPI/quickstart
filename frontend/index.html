@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="smileicon32.webp" sizes="32x32">
+    <link rel="icon" href="smileicon192.webp" sizes="192x192">
+    <title>Smile Quick Start</title>
+</head>
+
+<body>
+    <script src="https://cdn.smileapi.io/v1/smile.v1.js"></script>
+    <script type="text/javascript">
+        fetch('http://127.0.0.1:8000/api/create_link_token')
+            .then(response => response.json())
+            .then(data => {
+                console.log('data', data);
+                const smileLinkModal = new SmileLinkModal({
+                    /**
+                     * The Link API Host, Sandbox and Production mode are using different API hosts.
+                     */
+                    apiHost: 'https://link-sandbox.smileapi.io',
+                    /**
+                     * User token passed from your backend service which obtained from Smile API.
+                     */
+                    userToken: data.accessToken,
+                    onAccountCreated: ({
+                        accountId,
+                        userId,
+                        providerId
+                    }) => {
+                        console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                    },
+
+                    onAccountConnected: ({
+                        accountId,
+                        userId,
+                        providerId
+                    }) => {
+                        console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                    },
+
+                    onAccountRemoved: ({
+                        accountId,
+                        userId,
+                        providerId
+                    }) => {
+                        console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                    },
+
+                    onClose: () => {
+                        console.log('Link closed')
+                    },
+
+                    onTokenExpired: updateToken => {
+                        console.log('Token expired');
+                    }
+                });
+                smileLinkModal.open()
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+
+</html>
