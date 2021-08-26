@@ -21,7 +21,7 @@
                     /**
                      * The Link API Host, Sandbox and Production mode are using different API hosts.
                      */
-                    apiHost: 'https://link-sandbox.smileapi.io',
+                    apiHost: data.mode == 'SANDBOX' ? 'https://link-sandbox.smileapi.io' : 'https://link.smileapi.io',
                     /**
                      * User token passed from your backend service which obtained from Smile API.
                      */
