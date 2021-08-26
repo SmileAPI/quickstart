@@ -17,12 +17,10 @@ const SMILE_OPEN_API_SIGNATURE = Buffer.from(API_KEY_ID + ':' + API_KEY_SECRET).
 const app = express();
 app.use(cors());
 app.use(express.static('../frontend'));
-app.get('/api/create_link_token', async (request, response, next) => {
-
+app.get('/api/create_link_token', async(request, response, next) => {
     const post = bent(SMILE_API_HOST, 'POST', 'json', 201);
-    const createUserResult = await post('/users', {}, {"Authorization": "Basic " + SMILE_OPEN_API_SIGNATURE});
+    const createUserResult = await post('/users', {}, { "Authorization": "Basic " + SMILE_OPEN_API_SIGNATURE });
     const userToken = createUserResult.data.token;
-    console.log('userToken:', userToken);
     response.json(userToken);
 });
 app.listen(APP_PORT, () => {
