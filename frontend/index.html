@@ -16,7 +16,6 @@
         fetch('http://127.0.0.1:8000/api/create_link_token')
             .then(response => response.json())
             .then(data => {
-                console.log('data', data);
                 const smileLinkModal = new SmileLinkModal({
                     /**
                      * The Link API Host, Sandbox and Production mode are using different API hosts.
