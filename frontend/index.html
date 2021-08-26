@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="smileicon32.webp" sizes="32x32">
     <link rel="icon" href="smileicon192.webp" sizes="192x192">
-    <title>Smile Quick Start</title>
+    <title>Smile Wink Quickstart</title>
 </head>
 
 <body>
     <script src="https://cdn.smileapi.io/v1/smile.v1.js"></script>
     <script type="text/javascript">
+        /**
+        * You will need to update below server if you are using a different port number in your .env file.
+        */
         fetch('http://127.0.0.1:8000/api/create_link_token')
             .then(response => response.json())
             .then(data => {
