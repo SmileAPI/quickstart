@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bent = require('bent');
-const getJSON = bent('json')
 
 // Environment
 const APP_PORT = process.env.APP_PORT || 8000;
@@ -26,3 +25,21 @@ app.get('/api/create_link_token', async(request, response, next) => {
 app.listen(APP_PORT, () => {
     console.log(`Example app listening at http://localhost:${APP_PORT}`)
 })
+
+// Loop
+const getJSON = bent('json');
+const checkNewIdentities = async() => {
+    let cursor = new Date((Date.parse(new Date()) - 5000)).toISOString().replace(/\....Z/, 'S0');
+    let result;
+    try {
+        result = await getJSON(`${SMILE_API_HOST}/identities?size=100&cursor=${cursor}`, {}, { "Authorization": "Basic " + SMILE_OPEN_API_SIGNATURE });
+    } catch (error) {
+        console.log('error: ', error);
+    }
+    console.log('cursor: ', cursor);
+    console.log('url: ', `${SMILE_API_HOST}/identities?size=100&cursor=${cursor}`);
+
+    if (result && result.data.items.length > 0) console.log(result.data.items);
+};
+checkNewIdentities();
+setInterval(checkNewIdentities, 5000);
