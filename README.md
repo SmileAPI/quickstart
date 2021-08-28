@@ -21,7 +21,7 @@ Below steps are also included in the README.md document included in the the Quic
 > For example, in Mac or Linux machines open up the Terminal, you can use vi and enter the following commands as a Super User:
 
 ```bash
-touch vi .env
+touch .env
 ```
 
 > On Windows machines, Windows will not allow you to create a .env file directly from Windows Explorer since it will not allow file names starting with a ".". To get around this:
