@@ -1,3 +1,5 @@
+![Example](https://img.icons8.com/material/50/000000/example.png)
+
 ## Quickstart Sample Implementation
 The example code installs a small server running on Node.js that automatically retrieves a token from our API, so you can instantiate the Wink widget. 
 
