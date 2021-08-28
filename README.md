@@ -9,18 +9,20 @@ The example implementation is composed of two parts:
 ### Implementation steps
 Below steps are also included in the README.md document included in the the Quickstart [repository] and [archive].
 1. Download the Quickstart files onto your machine.
+
 2. Go to /node directory of Quickstart.
+
 3. Create a new file with called ".env" in that directory.
+
 4. Make sure you have proper permissions in your machine to be able to create the file. 
 
-For example, in Mac or Linux machines open up the Terminal, you can use vi and enter the following commands as a Super User:
+> For example, in Mac or Linux machines open up the Terminal, you can use vi and enter the following commands as a Super User:
 
 ```bash
-sudo vi .env
-:wq
+touch vi .env
 ```
 
-On Windows machines, Windows will not allow you to create a .env file directly from Windows Explorer since it will not allow file names starting with a ".". To get around this:
+> On Windows machines, Windows will not allow you to create a .env file directly from Windows Explorer since it will not allow file names starting with a ".". To get around this:
 
 ```
 1. Open Notepad oand write the content of the file (see below).
@@ -29,7 +31,7 @@ On Windows machines, Windows will not allow you to create a .env file directly f
 4. Save the file as ".env" 
 ```
 
-5. Open up the ".env" file that you just created, and enter the following:
+5. Open up the ".env" file that you just created in your favorite editor, and enter the following:
 
 ```bash
 # The port you want the example server to listen to
@@ -45,7 +47,9 @@ API_HOST=<apiURL>
 
 > **You can use as reference ".env.example" included in the Quickstart repository or archive**
 
-6. Save and close your file again.
+
+6. Save and close your file.
+
 7. If you don't have Node.js installed in your machine, install Node.js. 
 
 > For example on the Mac you can open up the Terminal and run:
