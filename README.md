@@ -40,8 +40,8 @@ touch .env
 APP_PORT=<portnumber>
 
 # Smile Link API keys (you can get this by requesting access from access@getsmileapi.com)
-API_KEY_ID=<clientid>
-API_KEY_SECRET=<clientsecret>
+API_KEY_ID=<apikeyid>
+API_KEY_SECRET=<apisecret>
 
 # API Host (whether this will run in Sandbox or Production)
 API_HOST=<apiURL>
