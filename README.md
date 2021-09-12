@@ -1,6 +1,8 @@
-![Example](https://img.icons8.com/material/50/000000/example.png)
+![Smile Banner](https://a-cloud.b-cdn.net/media/iW=2340&iH=726&oX=0&oY=0&cW=2340&cH=726/f814cf1173a99228c8a8fb75f74e9d1b.png)
 
 ## Quickstart Sample Implementation
+> We provide sample code in [Github](https://github.com/SmileAPI/quickstart) which you can download and modify according to your own requirements. 
+
 The example code installs a small server running on Node.js that automatically retrieves a token from our API, so you can instantiate the Wink widget. 
 
 The example implementation is composed of two parts:
@@ -21,7 +23,7 @@ Below steps are also included in the README.md document included in the the Quic
 > For example, in Mac or Linux machines open up the Terminal, you can use vi and enter the following commands as a Super User:
 
 ```bash
-touch .env
+sudo touch .env
 ```
 
 > On Windows machines, Windows will not allow you to create a .env file directly from Windows Explorer since it will not allow file names starting with a ".". To get around this:
@@ -47,7 +49,7 @@ API_KEY_SECRET=<apisecret>
 API_HOST=<apiURL>
 ```
 
-> **You can use as reference ".env.example" included in the Quickstart repository or archive**
+> **The .env file is normally hidden by your system.** You may want to enable showing of hidden files in your system preferences to be able to see it. **You can use ".env.example" file, included in the Quickstart repository, as a reference.**
 
 
 6. Save and close your file.
@@ -73,6 +75,8 @@ curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.
 npm install --global yarn
 yarn install
 ```
+
+> You may need to run as a Super User if you don't have enough permissions. On a Mac or Linux machine, you can run the commands as a superuser by using 'sudo'. On Windows, you can run the command with an administrator trust-level, or by right-clicking the program in the UI and choosing "run as administrator."
 
 8. Run the server:
 ```bash
