@@ -29,7 +29,7 @@ app.listen(APP_PORT, () => {
 // Loop
 const getJSON = bent('json');
 const checkNewIdentities = async () => {
-    let cursor = new Date((Date.parse(new Date()) - 4000)).toISOString().replace(/\....Z/, 'S0');
+    let cursor = new Date((Date.parse(new Date()) - 4000)).toISOString().replace(/\....Z/, 'ZS0');
     let result;
     try {
         result = await getJSON(`${SMILE_API_HOST}/identities?size=100&cursor=${cursor}`, {}, {"Authorization": "Basic " + SMILE_OPEN_API_SIGNATURE});
