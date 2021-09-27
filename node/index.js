@@ -28,18 +28,27 @@ app.listen(APP_PORT, () => {
 
 // Loop
 const getJSON = bent('json');
+let items = []
 const checkNewIdentities = async () => {
-    let cursor = new Date((Date.parse(new Date()) - 4000)).toISOString().replace(/\....Z/, 'ZS0');
+    // let cursor = new Date((Date.parse(new Date()) - 4000)).toISOString().replace(/\....Z/, 'ZS0');
+    let cursor = ''
+    let size = 2
     let result;
     try {
-        result = await getJSON(`${SMILE_API_HOST}/identities?size=100&cursor=${cursor}`, {}, {"Authorization": "Basic " + SMILE_OPEN_API_SIGNATURE});
+        result = await getJSON(`${SMILE_API_HOST}/identities?size=${size}&cursor=${cursor}`, {}, {"Authorization": "Basic " + SMILE_OPEN_API_SIGNATURE});
     } catch (error) {
         console.log('error: ', error);
     }
 
     if (result && result.data.items.length > 0) {
-        console.log('url: GET ', `${SMILE_API_HOST}/identities?size=100&cursor=${cursor}`);
-        console.log(result.data.items);
+        // console.log('url: GET ', `${SMILE_API_HOST}/identities?size=${size}&cursor=${cursor}`);
+        result.data.items.forEach(item => {
+            if (items.indexOf(item.id) < 0 ) {
+                items.push(item.id)
+                console.log(item);
+            }
+        })
+
     }
 };
 setInterval(checkNewIdentities, 5000);
