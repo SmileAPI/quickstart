@@ -29,6 +29,7 @@ app.listen(APP_PORT, () => {
 // Loop
 const getJSON = bent('json');
 let items = []
+let init = false
 const checkNewIdentities = async () => {
     // let cursor = new Date((Date.parse(new Date()) - 4000)).toISOString().replace(/\....Z/, 'ZS0');
     let cursor = ''
@@ -39,16 +40,18 @@ const checkNewIdentities = async () => {
     } catch (error) {
         console.log('error: ', error);
     }
-
     if (result && result.data.items.length > 0) {
         // console.log('url: GET ', `${SMILE_API_HOST}/identities?size=${size}&cursor=${cursor}`);
         result.data.items.forEach(item => {
             if (items.indexOf(item.id) < 0 ) {
                 items.push(item.id)
-                console.log(item);
+                if (init) {
+                    console.log(item);
+                }
             }
         })
 
     }
+    init = true
 };
 setInterval(checkNewIdentities, 5000);
