@@ -23,7 +23,7 @@
                     /**
                      * The Link API Host, Sandbox and Production mode are using different API hosts.
                      */
-                    apiHost: 'https://open.smileapi.io/v1',
+                    apiHost: data.mode === 'SANDBOX' ? 'https://link-sandbox.smileapi.io/v1' : 'https://link.smileapi.io/v1',
                     /**
                      * User token passed from your backend service which is obtained from the Smile Open API.
                      */
@@ -56,16 +56,15 @@
                     }) => {
                         console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
-                     onTokenExpired: () => {
+
+                    onTokenExpired: () => {
                             console.log('Token expired');
-                        },
+                    },
+
                     onClose: () => {
                         console.log('Link closed')
                     },
-
-                    /**
-                     * uploads submit callback
-                     */
+                    
                     onUploadsCreated: ({uploads,userId})=>{
                         console.log('Uploads: ',uploads,' User ID:',userId);
                     }
