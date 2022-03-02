@@ -56,7 +56,9 @@
                     }) => {
                         console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
-
+                     onTokenExpired: () => {
+                            console.log('Token expired');
+                        },
                     onClose: () => {
                         console.log('Link closed')
                     },
