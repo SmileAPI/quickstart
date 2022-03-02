@@ -32,11 +32,7 @@
                     * Use provider id to filter provider list. Example ['upwork', 'freelancer']
                     */
                     providers: [],
-                    /**
-                    * Enable or disable file uploads.
-                    */
-                    enableUpload: true,                    
-
+                    enableUpload: true,
                     onAccountCreated: ({
                         accountId,
                         userId,
@@ -61,8 +57,16 @@
                         console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
+                    onTokenExpired: () => {
+                            console.log('Token expired');
+                    },
+
                     onClose: () => {
                         console.log('Link closed')
+                    },
+                    
+                    onUploadsCreated: ({uploads,userId})=>{
+                        console.log('Uploads: ',uploads,' User ID:',userId);
                     }
                 });
                 smileLinkModal.open()
