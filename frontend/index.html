@@ -59,6 +59,13 @@
 
                     onClose: () => {
                         console.log('Link closed')
+                    },
+
+                    /**
+                     * uploads submit callback
+                     */
+                    onUploadsCreated: ({uploads,userId})=>{
+                        console.log('Uploads: ',uploads,' User ID:',userId);
                     }
                 });
                 smileLinkModal.open()
