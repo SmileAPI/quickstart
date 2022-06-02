@@ -29,14 +29,19 @@
                      */
                     userToken: data.accessToken,
                     /**
-                  * Use provider id to sort provider list. Example ['upwork', 'freelancer']
+                  * Use provider id to promote certain providers to the top of the list. Example ['upwork', 'freelancer'].
                   */
                     topProviders: [],
+
                     /**
                     * Use provider id to filter provider list. Example ['upwork', 'freelancer']
                     */
-                    providers: ['711_ph'],
-                    enableUpload: true,
+                    providers: [],
+
+                    /**
+                   * Enable or disable file uploads.
+                   */
+                    enableUpload: false,
                     onAccountCreated: ({
                         accountId,
                         userId,
