@@ -14,8 +14,8 @@
     <script src="https://web.smileapi.io/v1/smile.v1.js"></script>
     <script type="text/javascript">
         /**
-        * You will need to update below server if you are using a different port number in your .env file.
-        */
+         * You will need to update below server if you are using a different port number in your .env file.
+         */
         fetch('http://127.0.0.1:8000/api/create_link_token')
             .then(response => response.json())
             .then(data => {
@@ -29,10 +29,19 @@
                      */
                     userToken: data.accessToken,
                     /**
-                    * Use provider id to filter provider list. Example ['upwork', 'freelancer']
-                    */
+                     * Use provider id to promote certain providers to the top of the list. Example ['upwork', 'freelancer'].
+                     */
+                    topProviders: [],
+
+                    /**
+                     * Use provider id to filter provider list. Example ['upwork', 'freelancer']
+                     */
                     providers: [],
-                    enableUpload: true,
+
+                    /**
+                     * Enable or disable file uploads.
+                     */
+                    enableUpload: false,
                     onAccountCreated: ({
                         accountId,
                         userId,
@@ -58,15 +67,15 @@
                     },
 
                     onTokenExpired: () => {
-                            console.log('Token expired');
+                        console.log('Token expired');
                     },
 
                     onClose: () => {
                         console.log('Link closed')
                     },
-                    
-                    onUploadsCreated: ({uploads,userId})=>{
-                        console.log('Uploads: ',uploads,' User ID:',userId);
+
+                    onUploadsCreated: ({ uploads, userId }) => {
+                        console.log('Uploads: ', uploads, ' User ID:', userId);
                     }
                 });
                 smileLinkModal.open()
