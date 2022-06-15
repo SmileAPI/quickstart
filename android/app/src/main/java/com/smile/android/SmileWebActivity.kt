@@ -34,7 +34,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
 
         with(OkhttpUtils) {
             getInstance().getRequest(
-                "http://192.168.1.3:8000/api/create_link_token",
+                "http://10.0.2.2:8000/api/create_link_token",
                 object : HttpCallBack {
                     override fun onError(errorLog: String) {
                         Log.e("errorLog", errorLog)
