@@ -33,6 +33,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         wv.addJavascriptInterface(SmileJsCallBack(this), "smile")
 
         with(OkhttpUtils) {
+           //Call the node server to get user token.
             getInstance().getRequest(
                 "http://10.0.2.2:8000/api/create_link_token",
                 object : HttpCallBack {
