@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="smileicon32.webp" sizes="32x32">
+    <link rel="icon" href="smileicon192.webp" sizes="192x192">
+    <title>Smile Wink Quickstart</title>
+</head>
+
+<body>
+<script src="https://web.smileapi.io/v1/smile.v1.js"></script>
+<script type="text/javascript">
+    function getQueryString(name) {
+        const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        const r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+
+    const initData = JSON.parse(getQueryString('data'));
+    const smileLinkModal = new SmileLinkModal({
+        /**
+         * The Link API URI. Note: Sandbox and Production modes are using different API URIs.
+         */
+        apiHost: initData.apiHost,
+        /**
+         * User token passed from your backend service which is obtained from the Smile API.
+         */
+        userToken: initData.userToken,
+        /**
+         * Use provider id to filter provider list. Example ['upwork', 'freelancer']
+         */
+        providers: initData.providers,
+        enableUpload: initData.enableUpload,
+         /**
+         * Use provider id to filter provdier list
+         */
+        topProviders:[],
+        /**
+        * Use provider type to filter provdier list
+        */
+        providerTypes: [],
+        onAccountCreated: ({
+                               accountId,
+                               userId,
+                               providerId
+                           }) => {
+            console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+        },
+
+        onAccountConnected: ({
+                                 accountId,
+                                 userId,
+                                 providerId
+                             }) => {
+            console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+            smile.onAccountConnected(accountId, userId, providerId)
+        },
+
+        onAccountRemoved: ({
+                               accountId,
+                               userId,
+                               providerId
+                           }) => {
+            console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+            smile.onAccountRemoved(accountId, userId, providerId)
+        },
+
+        onClose: () => {
+            console.log('Widget closed')
+            smile.onClose()
+        },
+
+        onTokenExpired: updateToken => {
+            console.log('Token expired');
+        },
+
+        onUploadsCreated: ({uploads, userId}) => {
+            console.log('Uploads: ', JSON.stringify(uploads), ' User ID:', userId);
+            smile.onUploadsCreated(JSON.stringify(uploads), userId)
+        }
+    });
+    smileLinkModal.open()
+</script>
+</body>
+
+</html>
