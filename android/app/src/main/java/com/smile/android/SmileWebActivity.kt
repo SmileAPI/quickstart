@@ -13,7 +13,6 @@ import com.smile.android.entity.ResultModel
 import com.smile.android.entity.SmileJsModel
 import com.smile.android.util.HttpCallBack
 import com.smile.android.util.OkhttpUtils
-import okhttp3.*
 
 
 class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
