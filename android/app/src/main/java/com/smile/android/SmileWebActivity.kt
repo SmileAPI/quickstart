@@ -23,7 +23,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         Log.d("TestActivityTag", "init")
-        val wv = findViewById<WebView>(R.id.wv_smil_view)
+        val wv = findViewById<WebView>(R.id.webview_smile_view)
         wv.settings.javaScriptEnabled = true
         wv.settings.allowContentAccess = true
         wv.settings.javaScriptCanOpenWindowsAutomatically = true
@@ -55,7 +55,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
                             )
                             runOnUiThread {wv.loadUrl("file:///android_asset/smile.html?data=${Gson().toJson(jsModel)}") }
                         } catch (e: Exception) {
-                            println("try exception,${e.message}")
+                            Log.d("try exception,${e.message}")
                         }
                     }
                 })
@@ -139,11 +139,23 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
     fun onUploadsCreated(uploads: String?, userId: String) {
         listener.onUploadsCreated(uploads, userId)
     }
+
+    @JavascriptInterface
+    fun onAccountCreated(accountId: String, userId: String, providerId: String) {
+        listener.onAccountCreated( accountId, userId, providerId)
+    }
+
+    @JavascriptInterface
+    fun onTokenExpired(updateToken: String) {
+        listener.onTokenExpired(updateToken)
+    }
 }
 
 interface SmileBridgeInterface {
+    fun onAccountCreated(accountId: String, userId: String, providerId: String)
     fun onAccountConnected(accountId: String, userId: String, providerId: String)
     fun onAccountRemoved(accountId: String, userId: String, providerId: String)
     fun onClose()
     fun onUploadsCreated(uploads: String?, userId: String)
+    fun onTokenExpired(updateToken: String)
 }
