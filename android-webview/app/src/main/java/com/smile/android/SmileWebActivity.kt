@@ -36,16 +36,16 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
          */
         wv.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         /**
-         * H5 and kotlin communication mode
-         * H5 call kotlin
+         * Wink SDK and Kotlin communication mode
+         * Wink SDK call Kotlin
          * Set communication bridge class
          */
         wv.addJavascriptInterface(SmileJsCallBack(this), "smile")
 
         with(OkhttpUtils) {
             /**
-             *Call the node server to get user token.
-             *This process will get the relevant SDK initialization data from the backend in your code.
+             * Call the node server to get user token.
+             * This process will get the relevant SDK initialization data from the backend in your code.
              */
             getInstance().getRequest(
                 "http://10.0.2.2:8000/api/create_link_token",
@@ -150,7 +150,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
     }
 
     override fun onClose() {
-        Log.e("onClose", "")
+        Log.d("onClose", "")
         TODO("Relevant business code after sdk close")
     }
 
