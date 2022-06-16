@@ -45,10 +45,10 @@ APP_PORT=<portnumber>
 API_KEY_ID=<apikeyid>
 API_KEY_SECRET=<apisecret>
 
-#Open API Host. for example: https://open.smileapi.io/v1
+#Open API Host. for example: https://sandbox.smileapi.io/v1
 OPEN_API_HOST=<openApiURL>
 
-#Link api host. for example: https://link.smileapi.io/v1
+#Link api host. for example: https://link-sandbox.smileapi.io/v1
 LINK_API_HOST=<linkApiURL>
 ```
 
