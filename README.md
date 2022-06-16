@@ -10,6 +10,7 @@ The example implementation is composed of two parts:
 
 -   Under /frontend, you will find example code in HTML that already has the Wink Javascript SDK embedded already.
 -   Under /node, you will find server-side Javascript code that will retrieve the token. You will need to download and run Node.js to run the code.
+-   Under /android-webview, you will find example code in Android that already has Wink Javascript SDK embedded already.
 
 ### Implementation steps
 
@@ -92,16 +93,11 @@ node index.js
 
 10. Sit back, relax, and pat yourself on the back for a job well done!
 
-### Use in Android WebView steps
 
-Based on the above Implementation Steps，if you want to use Android WebView, you can follow these steps:
+### Additionly, if you want to use Wink Javascript SDK in Android Webview
 
-1.Run node service
+Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
-```bash
-node index.js
-```
+1. Import the /android-webview folder in your favorite IDE(example:Android Studio)
 
-2.Import the Android-WebView folder in android Development tools(example:Android Studio)
-
-3.After gradle will load the dependencies successfully, start Android debugging in android development tools
+2. After all dependencies successfully loaded, start the your App.
