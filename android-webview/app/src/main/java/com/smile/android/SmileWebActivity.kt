@@ -1,5 +1,6 @@
 package com.smile.android
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -19,6 +20,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
     private var filePathCallback: ValueCallback<Array<Uri>>? = null
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
@@ -33,30 +35,48 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         wv.addJavascriptInterface(SmileJsCallBack(this), "smile")
 
         with(OkhttpUtils) {
-           //Call the node server to get user token.
+            //Call the node server to get user token.
             getInstance().getRequest(
                 "http://10.0.2.2:8000/api/create_link_token",
                 object : HttpCallBack {
                     override fun onError(errorLog: String) {
                         Log.e("errorLog", errorLog)
                     }
-                    override fun onSuccess(message: String) {
-                        Log.d("message", message)
+                    override fun onSuccess(response: String) {
+                        Log.d("response", response)
                         try {
                             val type = object : TypeToken<ResultModel>() {}.type
-                            val model: ResultModel =  Gson().fromJson(message, type)
-                            val filterList = emptyList<String>()
-                            val topProviders = emptyList<String>()
+                            val model: ResultModel = Gson().fromJson(response, type)
                             val enableUpload = true
-                            val linkUrl = model.apiHost
-                            val accessToken = model.accessToken
+                            val providers: List<String> = emptyList()
+                            val topProviders: List<String> = emptyList()
+                            val providerTypes: List<String> = emptyList()
                             val jsModel = SmileJsModel(
-                                apiHost = linkUrl, providers = filterList,
-                                userToken = accessToken, enableUpload = enableUpload, topProviders = topProviders
-                            )
-                            runOnUiThread {wv.loadUrl("file:///android_asset/smile.html?data=${Gson().toJson(jsModel)}") }
+                                /**
+                                 * The Link API URI. Note: Sandbox and Production modes are using different API URIs.
+                                 */
+                                apiHost = model.apiHost,
+                                /**
+                                 * Use provider id to filter provider list. Example ['upwork', 'freelancer']
+                                 */
+                                providers = providers,
+                                /**
+                                 * User token passed from your backend service which is obtained from the Smile API.
+                                 */
+                                userToken = model.accessToken,
+
+                                enableUpload = enableUpload,
+                                /**
+                                 * Use provider id to filter provider list. Example ['upwork', 'freelancer']
+                                 */
+                                topProviders = topProviders,
+                                /**
+                                 * Use provider type to filter provider list
+                                 */
+                                providerTypes = providerTypes)
+                            runOnUiThread {wv.loadUrl("file:///android_asset/smile.html?data=${Gson().toJson(jsModel)}")}
                         } catch (e: Exception) {
-                            Log.d("try exception,${e.message}")
+                            Log.e("try exception", e.message.toString())
                         }
                     }
                 })
@@ -94,6 +114,12 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
 
     }
 
+    override fun onAccountCreated(accountId: String, userId: String, providerId: String) {
+        Log.d("accountId", accountId)
+        Log.d("userId", userId)
+        Log.d("providerId", providerId)
+    }
+
 
     override fun onAccountConnected(accountId: String, userId: String, providerId: String) {
         Log.d("accountId", accountId)
@@ -114,6 +140,10 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
     override fun onUploadsCreated(uploads: String?, userId: String) {
         Log.d("uploads", uploads.toString())
         Log.d("userId", userId)
+    }
+
+    override fun onTokenExpired(updateToken: String) {
+        Log.d("updateToken", updateToken)
     }
 
 }
@@ -143,7 +173,7 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
 
     @JavascriptInterface
     fun onAccountCreated(accountId: String, userId: String, providerId: String) {
-        listener.onAccountCreated( accountId, userId, providerId)
+        listener.onAccountCreated(accountId, userId, providerId)
     }
 
     @JavascriptInterface
