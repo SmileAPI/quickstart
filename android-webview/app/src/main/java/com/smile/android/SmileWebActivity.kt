@@ -71,7 +71,9 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
                                  * User token passed from your backend service which is obtained from the Smile API.
                                  */
                                 userToken = model.accessToken,
-
+                                /**
+                                 * Enable or disable file uploads.
+                                 */
                                 enableUpload = model.enableUpload,
                                 /**
                                  * Use provider id to filter provider list. Example ['upwork', 'freelancer']
