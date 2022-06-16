@@ -1,5 +1,6 @@
 package com.smile.android
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -19,6 +20,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
     private var filePathCallback: ValueCallback<Array<Uri>>? = null
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
@@ -28,35 +30,59 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         wv.settings.allowContentAccess = true
         wv.settings.javaScriptCanOpenWindowsAutomatically = true
         wv.settings.allowFileAccess = true
+        /**
+         * Get data from the network without caching.
+         * Recommended to turn off caching.
+         */
         wv.settings.cacheMode = WebSettings.LOAD_NO_CACHE
-        wv.settings.allowFileAccessFromFileURLs = true
+        /**
+         * Wink SDK and Kotlin communication mode
+         * Wink SDK call Kotlin
+         * Set communication bridge class
+         */
         wv.addJavascriptInterface(SmileJsCallBack(this), "smile")
 
         with(OkhttpUtils) {
-           //Call the node server to get user token.
+            /**
+             * Call the node server to get user token.
+             * This process will get the relevant SDK initialization data from the backend in your code.
+             */
             getInstance().getRequest(
                 "http://10.0.2.2:8000/api/create_link_token",
                 object : HttpCallBack {
                     override fun onError(errorLog: String) {
                         Log.e("errorLog", errorLog)
                     }
-                    override fun onSuccess(message: String) {
-                        Log.d("message", message)
+                    override fun onSuccess(response: String) {
+                        Log.d("response", response)
                         try {
                             val type = object : TypeToken<ResultModel>() {}.type
-                            val model: ResultModel =  Gson().fromJson(message, type)
-                            val filterList = emptyList<String>()
-                            val topProviders = emptyList<String>()
-                            val enableUpload = true
-                            val linkUrl = model.apiHost
-                            val accessToken = model.accessToken
+                            val model: ResultModel = Gson().fromJson(response, type)
                             val jsModel = SmileJsModel(
-                                apiHost = linkUrl, providers = filterList,
-                                userToken = accessToken, enableUpload = enableUpload, topProviders = topProviders
-                            )
-                            runOnUiThread {wv.loadUrl("file:///android_asset/smile.html?data=${Gson().toJson(jsModel)}") }
+                                /**
+                                 * The Link API URI. Note: Sandbox and Production modes are using different API URIs.
+                                 */
+                                apiHost = model.apiHost,
+                                /**
+                                 * Use provider id to filter provider list. Example ['upwork', 'freelancer']
+                                 */
+                                providers = model.providers,
+                                /**
+                                 * User token passed from your backend service which is obtained from the Smile API.
+                                 */
+                                userToken = model.accessToken,
+                                /**
+                                 * Enable or disable file uploads.
+                                 */
+                                enableUpload = model.enableUpload,
+                                /**
+                                 * Use provider id to filter provider list. Example ['upwork', 'freelancer']
+                                 */
+                                topProviders = model.topProviders)
+                            Log.d("initParam",Gson().toJson(jsModel))
+                            runOnUiThread {wv.loadUrl("file:///android_asset/smile.html?initParam=${Gson().toJson(jsModel)}")}
                         } catch (e: Exception) {
-                            Log.d("try exception,${e.message}")
+                            Log.e("try exception", e.message.toString())
                         }
                     }
                 })
@@ -76,7 +102,14 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
                 super.onLoadResource(view, url)
                 Log.e("TestActivityTag", "onLoadResource")
             }
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                view.loadUrl(url)
+                return true
+            }
         }
+        /**
+         * Archive upload file function related configurations.
+         */
         wv.webChromeClient = object : WebChromeClient() {
             override fun onShowFileChooser(
                 webView: WebView?,
@@ -94,26 +127,42 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
 
     }
 
+    override fun onAccountCreated(accountId: String, userId: String, providerId: String) {
+        Log.d("accountId", accountId)
+        Log.d("userId", userId)
+        Log.d("providerId", providerId)
+        TODO("Relevant business code after account created")
+    }
+
 
     override fun onAccountConnected(accountId: String, userId: String, providerId: String) {
         Log.d("accountId", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
+        TODO("Relevant business code after account connected")
     }
 
     override fun onAccountRemoved(accountId: String, userId: String, providerId: String) {
         Log.d("accountId", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
+        TODO("Relevant business code after account removed")
     }
 
     override fun onClose() {
-        Log.e("onClose", "")
+        Log.d("onClose", "")
+        TODO("Relevant business code after sdk close")
     }
 
     override fun onUploadsCreated(uploads: String?, userId: String) {
         Log.d("uploads", uploads.toString())
         Log.d("userId", userId)
+        TODO("Relevant business code after upload")
+    }
+
+    override fun onTokenExpired(updateToken: String) {
+        Log.d("updateToken", updateToken)
+        TODO("Relevant business code if then token expired")
     }
 
 }
@@ -143,7 +192,7 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
 
     @JavascriptInterface
     fun onAccountCreated(accountId: String, userId: String, providerId: String) {
-        listener.onAccountCreated( accountId, userId, providerId)
+        listener.onAccountCreated(accountId, userId, providerId)
     }
 
     @JavascriptInterface
@@ -152,6 +201,9 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
     }
 }
 
+/**
+ * kotlin listener javascript interface
+ */
 interface SmileBridgeInterface {
     fun onAccountCreated(accountId: String, userId: String, providerId: String)
     fun onAccountConnected(accountId: String, userId: String, providerId: String)
