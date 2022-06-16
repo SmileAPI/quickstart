@@ -131,7 +131,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         Log.d("accountId", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
-        TODO("Relevant business code after account created")
+        //TODO("Relevant business code after account created")
     }
 
 
@@ -139,30 +139,30 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         Log.d("accountId", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
-        TODO("Relevant business code after account connected")
+        //TODO("Relevant business code after account connected")
     }
 
     override fun onAccountRemoved(accountId: String, userId: String, providerId: String) {
         Log.d("accountId", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
-        TODO("Relevant business code after account removed")
+        //TODO("Relevant business code after account removed")
     }
 
     override fun onClose() {
         Log.d("onClose", "")
-        TODO("Relevant business code after sdk close")
+        //TODO("Relevant business code after sdk close")
     }
 
     override fun onUploadsCreated(uploads: String?, userId: String) {
         Log.d("uploads", uploads.toString())
         Log.d("userId", userId)
-        TODO("Relevant business code after upload")
+        //TODO("Relevant business code after upload")
     }
 
     override fun onTokenExpired(updateToken: String) {
         Log.d("updateToken", updateToken)
-        TODO("Relevant business code if then token expired")
+        //TODO("Relevant business code if then token expired")
     }
 
 }
