@@ -45,8 +45,11 @@ APP_PORT=<portnumber>
 API_KEY_ID=<apikeyid>
 API_KEY_SECRET=<apisecret>
 
-# API Host (whether this will run in Sandbox or Production)
-API_HOST=<apiURL>
+#open API Host eg: https://open.smileapi.io/v1
+OPEN_API_HOST=<openApiURL>
+
+#link api host eg: https://link.smileapi.io/v1
+LINK_API_HOST=<linkApiURL>
 ```
 
 > **The .env file is normally hidden by your system.** You may want to enable showing of hidden files in your system preferences to be able to see it. **You can use ".env.example" file, included in the Quickstart repository, as a reference.**
