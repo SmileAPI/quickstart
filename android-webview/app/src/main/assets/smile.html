@@ -13,8 +13,14 @@
 <body>
     <script src="https://web.smileapi.io/v1/smile.v1.js"></script>
     <script type="text/javascript">
-        function getQueryString(name) {
-            const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        /**
+         * Get the "initParam" parameter value from the link url.
+         * Example link url:
+         * file:///android_asset/smile.html?data={"apiHost":"","enableUpload":true,"providerTypes":[],"providers":[],"topProviders":[],"userToken":""}
+         * @returns {string|null}
+         */
+        function getInitParamJsonString() {
+            const reg = new RegExp('(^|&)initParam=([^&]*)(&|$)', 'i');
             const r = window.location.search.substr(1).match(reg);
             if (r != null) {
                 return unescape(r[2]);
@@ -22,7 +28,7 @@
             return null;
         }
 
-        const initData = JSON.parse(getQueryString('data'));
+        const initData = JSON.parse(getInitParamJsonString());
         const smileLinkModal = new SmileLinkModal({
             /**
              * The Link API URI. Note: Sandbox and Production modes are using different API URIs.
@@ -36,43 +42,43 @@
              * Use provider id to filter provider list. Example ['upwork', 'freelancer']
              */
             providers: initData.providers,
+            /**
+             * Enable or disable file uploads.
+             */
             enableUpload: initData.enableUpload,
             /**
             * Use provider id to filter provider list
             */
-            topProviders: [],
-            /**
-            * Use provider type to filter provider list
-            */
-            providerTypes: [],
-            onAccountCreated: ({
-                accountId,
-                userId,
-                providerId
-            }) => {
+            topProviders: initData.topProviders,
+            onAccountCreated: ({accountId, userId, providerId}) => {
                 console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                /**
+                 * kotlin onAccountCreated communication method
+                 */
+                smile.onAccountCreated(accountId, userId, providerId)
             },
 
-            onAccountConnected: ({
-                accountId,
-                userId,
-                providerId
-            }) => {
+            onAccountConnected: ({accountId, userId, providerId}) => {
                 console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                /**
+                 * kotlin onAccountConnected communication method
+                 */
                 smile.onAccountConnected(accountId, userId, providerId)
             },
 
-            onAccountRemoved: ({
-                accountId,
-                userId,
-                providerId
-            }) => {
+            onAccountRemoved: ({accountId, userId, providerId}) => {
                 console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                /**
+                 * kotlin onAccountRemoved communication method
+                 */
                 smile.onAccountRemoved(accountId, userId, providerId)
             },
 
             onClose: () => {
                 console.log('Widget closed')
+                /**
+                 * kotlin onClose communication method
+                 */
                 smile.onClose()
             },
 

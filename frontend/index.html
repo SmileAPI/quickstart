@@ -23,7 +23,7 @@
                     /**
                      * The Link API Host, Sandbox and Production mode are using different API hosts.
                      */
-                    apiHost: data.mode === 'SANDBOX' ? 'https://link-sandbox.smileapi.io/v1' : 'https://link.smileapi.io/v1',
+                    apiHost: data.apiHost,
                     /**
                      * User token passed from your backend service which is obtained from the Smile Open API.
                      */
@@ -31,17 +31,17 @@
                     /**
                      * Use provider id to promote certain providers to the top of the list. Example ['upwork', 'freelancer'].
                      */
-                    topProviders: [],
+                    topProviders: data.topProviders,
 
                     /**
                      * Use provider id to filter provider list. Example ['upwork', 'freelancer']
                      */
-                    providers: [],
+                    providers: data.providers,
 
                     /**
                      * Enable or disable file uploads.
                      */
-                    enableUpload: false,
+                    enableUpload: data.enableUpload,
                     onAccountCreated: ({
                         accountId,
                         userId,
