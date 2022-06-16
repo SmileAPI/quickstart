@@ -84,11 +84,17 @@
 
             onTokenExpired: updateToken => {
                 console.log('Token expired');
+                /**
+                 * kotlin onTokenExpired communication method
+                 */
                 smile.onTokenExpired(updateToken)
             },
 
             onUploadsCreated: ({ uploads, userId }) => {
                 console.log('Uploads: ', JSON.stringify(uploads), ' User ID:', userId);
+                /**
+                 * kotlin onUploadsCreated communication method
+                 */
                 smile.onUploadsCreated(JSON.stringify(uploads), userId)
             }
         });

@@ -199,6 +199,9 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
     }
 }
 
+/**
+ * kotlin listener javascript interface
+ */
 interface SmileBridgeInterface {
     fun onAccountCreated(accountId: String, userId: String, providerId: String)
     fun onAccountConnected(accountId: String, userId: String, providerId: String)
