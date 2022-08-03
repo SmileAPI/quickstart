@@ -93,7 +93,6 @@ node index.js
 
 10. Sit back, relax, and pat yourself on the back for a job well done!
 
-
 ### Additionly, if you want to use Wink Javascript SDK in Android Webview
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
@@ -101,3 +100,15 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 1. Import the /android-webview folder in your favorite IDE(example:Android Studio)
 
 2. After all dependencies successfully loaded, start the your App.
+
+### Additionly, if you want to use Wink Javascript SDK in React Native Webview
+
+Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
+
+1. Create a React Native project and configure the React Native development environment to ensure normal operation
+
+2. Create two HTML, one on the root directory, one on the android/app/src/main/assets
+
+3. Write the startup method in the two HTML. Note that the startup mode of Android and iOS is different, and the specific writing method can refer to the React-native file
+
+4. Start the your App
