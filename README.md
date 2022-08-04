@@ -105,10 +105,20 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
-1. Create a React Native project and configure the React Native development environment to ensure normal operation
+1. Create a React Native project and configure the React Native development environment to ensure normal operation [you can find the instructions](https://reactnative.dev/docs/getting-started)
 
 2. Create two HTML, one on the root directory, one on the android/app/src/main/assets
 
 3. Write the startup method in the two HTML. Note that the startup mode of Android and iOS is different, and the specific writing method can refer to the React-native file
 
 4. Start the your App
+
+```bash
+    // iOS
+    yarn react-native run-ios
+```
+
+```bash
+    // Android
+    yarn react-native run-android
+```
