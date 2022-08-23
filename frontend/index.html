@@ -79,7 +79,13 @@
 
                     onUploadsCreated: ({ uploads, userId }) => {
                         console.log('Uploads: ', uploads, ' User ID:', userId);
-                    }
+                    },
+                    onAccountError: ({ accountId,
+                        userId,
+                        providerId,
+                        errorCode }) => {
+                        console.log('Account connect error: ', accountId, ' User ID:', userId, ' Provider ID:', providerId, 'Error Code:', errorCode)
+                    },
                 });
                 smileLinkModal.open()
             })
