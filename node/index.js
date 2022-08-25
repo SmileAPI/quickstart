@@ -6,12 +6,12 @@ const bent = require('bent');
 // Environment
 const APP_PORT = process.env.APP_PORT;
 const API_KEY = process.env.API_KEY;
-const API_KEY_SECRET = process.env.API_KEY_SECRET;
+const API_SECRET = process.env.API_SECRET;
 const OPEN_API_HOST = process.env.OPEN_API_HOST;
 const LINK_API_HOST = process.env.LINK_API_HOST;
 // Configuration
 const SMILE_OPEN_API_SIGNATURE = Buffer.from(
-    API_KEY + ':' + API_KEY_SECRET
+    API_KEY + ':' + API_SECRET
 ).toString('base64');
 
 // App
