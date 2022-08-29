@@ -6,10 +6,15 @@
 
 The example code installs a small server running on Node.js that automatically retrieves a token from our API, so you can instantiate the Wink widget.
 
-The example implementation is composed of four parts:
+The example implementation is composed of two parts:
+
+### Back end
+
+-   Under /node, you will find server-side Javascript code that will retrieve the token. You will need to download and run Node.js to run the code.
+
+### Font end
 
 -   Under /frontend, you will find example code in HTML that already has the Wink Javascript SDK embedded already.
--   Under /node, you will find server-side Javascript code that will retrieve the token. You will need to download and run Node.js to run the code.
 -   Under /android-webview, you will find example code in Android that already has Wink Javascript SDK embedded already.
 -   Under /react-native, you will find example code in react-native that already has Wink Javascript SDK embedded already.
 
@@ -108,11 +113,14 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 1. Create a React Native project and configure the React Native development environment to ensure normal operation [you can find the instructions](https://reactnative.dev/docs/getting-started)
 
-2. Copy /fontend/index.html to /react-native and /react-native/android/app/src/main/assets.
+2. Run Yarn with [npm package manager](https://www.npmjs.com/) which is included with Node.js and enter the following commands:
 
-3. Modify the writing of /react-native/android/app/src/main/assets/index.html, please refer to the writing style in the example directory for details, because the initialization writing of IOS is different from Android.
+```bash
+npm install --global yarn
+yarn install
+```
 
-4. Start your App.
+3. Start your App.
 
 ```bash
     // iOS
