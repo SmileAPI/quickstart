@@ -46,8 +46,8 @@ sudo touch .env
 APP_PORT=<portnumber>
 
 # Smile Link API keys (you can get this by requesting access from access@getsmileapi.com)
-API_KEY_ID=<apikeyid>
-API_KEY_SECRET=<apisecret>
+API_KEY=<apikeyid>
+API_SECRET=<apisecret>
 
 #Open API Host. for example: https://sandbox.smileapi.io/v1
 OPEN_API_HOST=<openApiURL>
