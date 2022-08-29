@@ -47,41 +47,55 @@
                      * Enable or disable file uploads.
                      */
                     enableUpload: data.enableUpload,
-                    onAccountCreated: ({
-                        accountId,
-                        userId,
-                        providerId
-                    }) => {
+
+                    /**
+                     * Account login callback.
+                     */
+                    onAccountCreated: ({ accountId, userId, providerId }) => {
                         console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
-                    onAccountConnected: ({
-                        accountId,
-                        userId,
-                        providerId
-                    }) => {
+                    /**
+                     * Account login success callback.
+                     */
+                    onAccountConnected: ({ accountId, userId, providerId }) => {
                         console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
-                    onAccountRemoved: ({
-                        accountId,
-                        userId,
-                        providerId
-                    }) => {
+                    /**
+                     * Account revoke callback.
+                     */
+                    onAccountRemoved: ({ accountId, userId, providerId }) => {
                         console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
+                    /**
+                     * Token expired callback.
+                     */
                     onTokenExpired: () => {
                         console.log('Token expired');
                     },
 
+                    /**
+                     * Smile link sdk closed callback.
+                     */
                     onClose: () => {
                         console.log('Link closed')
                     },
 
+                    /**
+                     * Account connect error callback.
+                     */
+                    onAccountError: ({ accountId, userId, providerId, errorCode }) => {
+                        console.log('Account error: ', accountId, ' User ID:', userId, ' Provider ID:', providerId, 'Error Code:', errorCode)
+                    },
+
+                    /**
+                     * Uploads submit callback.
+                     */
                     onUploadsCreated: ({ uploads, userId }) => {
                         console.log('Uploads: ', uploads, ' User ID:', userId);
-                    }
+                    },
                 });
                 smileLinkModal.open()
             })
