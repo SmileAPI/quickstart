@@ -8,11 +8,11 @@ The example code installs a small server running on Node.js that automatically r
 
 The example implementation is composed of two parts:
 
-### Back end
+### Backend
 
 -   Under /node, you will find server-side Javascript code that will retrieve the token. You will need to download and run Node.js to run the code.
 
-### Font end
+### Frontend
 
 -   Under /frontend, you will find example code in HTML that already has the Wink Javascript SDK embedded already.
 -   Under /android-webview, you will find example code in Android that already has Wink Javascript SDK embedded already.
