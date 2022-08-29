@@ -8,9 +8,15 @@ The example code installs a small server running on Node.js that automatically r
 
 The example implementation is composed of two parts:
 
--   Under /frontend, you will find example code in HTML that already has the Wink Javascript SDK embedded already.
+### Backend
+
 -   Under /node, you will find server-side Javascript code that will retrieve the token. You will need to download and run Node.js to run the code.
+
+### Frontend
+
+-   Under /frontend, you will find example code in HTML that already has the Wink Javascript SDK embedded already.
 -   Under /android-webview, you will find example code in Android that already has Wink Javascript SDK embedded already.
+-   Under /react-native, you will find example code in react-native that already has Wink Javascript SDK embedded already.
 
 ### Implementation steps
 
@@ -107,11 +113,14 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 1. Create a React Native project and configure the React Native development environment to ensure normal operation [you can find the instructions](https://reactnative.dev/docs/getting-started)
 
-2. Create two HTML, one on the root directory, one on the android/app/src/main/assets
+2. Run Yarn with [npm package manager](https://www.npmjs.com/) which is included with Node.js and enter the following commands:
 
-3. Write the startup method in the two HTML. Note that the startup mode of Android and iOS is different, and the specific writing method can refer to the React-native file
+```bash
+npm install --global yarn
+yarn install
+```
 
-4. Start the your App
+3. Start your App.
 
 ```bash
     // iOS
