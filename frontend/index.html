@@ -20,7 +20,6 @@
             .then(response => response.json())
             .then(data => {
                 const smileLinkModal = new SmileLinkModal({
-
                     /**
                      * The Link API Host, Sandbox and Production mode are using different API hosts.
                      */
@@ -29,7 +28,7 @@
                     /**
                      * User token passed from your backend service which is obtained from the Smile Open API.
                      */
-                    userToken: data.accessToken,
+                    userToken: data.userToken,
 
                     /**
                      * Use provider id to promote certain providers to the top of the list. Example ['upwork', 'freelancer'].
@@ -45,41 +44,55 @@
                      * Enable or disable file uploads.
                      */
                     enableUpload: data.enableUpload,
-                    onAccountCreated: ({
-                        accountId,
-                        userId,
-                        providerId
-                    }) => {
+
+                    /**
+                     * Account login callback.
+                     */
+                    onAccountCreated: ({ accountId, userId, providerId }) => {
                         console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
-                    onAccountConnected: ({
-                        accountId,
-                        userId,
-                        providerId
-                    }) => {
+                    /**
+                     * Account login success callback.
+                     */
+                    onAccountConnected: ({ accountId, userId, providerId }) => {
                         console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
-                    onAccountRemoved: ({
-                        accountId,
-                        userId,
-                        providerId
-                    }) => {
+                    /**
+                     * Account revoke callback.
+                     */
+                    onAccountRemoved: ({ accountId, userId, providerId }) => {
                         console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
                     },
 
+                    /**
+                     * Token expired callback.
+                     */
                     onTokenExpired: () => {
                         console.log('Token expired');
                     },
 
+                    /**
+                     * Smile link SDK close callback.
+                     */
                     onClose: () => {
                         console.log('Link closed')
                     },
 
+                    /**
+                     * Account connect error callback.
+                     */
+                    onAccountError: ({ accountId, userId, providerId, errorCode }) => {
+                        console.log('Account error: ', accountId, ' User ID:', userId, ' Provider ID:', providerId, 'Error Code:', errorCode)
+                    },
+
+                    /**
+                     * Uploads submit callback.
+                     */
                     onUploadsCreated: ({ uploads, userId }) => {
                         console.log('Uploads: ', uploads, ' User ID:', userId);
-                    }
+                    },
                 });
                 smileLinkModal.open()
             })
