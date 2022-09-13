@@ -80,7 +80,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
                                  */
                                 topProviders = model.topProviders)
                             Log.d("initParam",Gson().toJson(jsModel))
-                            runOnUiThread {wv.loadUrl("file:///android_asset/smile.html?initParam=${Gson().toJson(jsModel)}")}
+                            runOnUiThread {wv.loadUrl("file:///android_asset/smile.html?initParam=${Gson().toJson(jsModel).trim()}")}
                         } catch (e: Exception) {
                             Log.e("try exception", e.message.toString())
                         }
