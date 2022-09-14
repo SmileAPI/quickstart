@@ -160,8 +160,8 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         //TODO("Relevant business code after upload")
     }
 
-    override fun onTokenExpired(updateToken: String) {
-        Log.d("updateToken", updateToken)
+    override fun onTokenExpired() {
+        Log.d("token expired","")
         //TODO("Relevant business code if then token expired")
     }
 
