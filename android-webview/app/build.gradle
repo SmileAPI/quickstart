@@ -23,6 +23,12 @@ android {
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
             proguardFile 'proguard-project.txt'
         }
+        debug {
+            minifyEnabled   true
+            shrinkResources true
+            proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
+            proguardFile 'proguard-project.txt'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
