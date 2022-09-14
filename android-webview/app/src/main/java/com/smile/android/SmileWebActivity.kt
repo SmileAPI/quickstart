@@ -160,9 +160,17 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         //TODO("Relevant business code after upload")
     }
 
-    override fun onTokenExpired(updateToken: String) {
-        Log.d("updateToken", updateToken)
+    override fun onTokenExpired() {
+        Log.d("token expired","")
         //TODO("Relevant business code if then token expired")
+    }
+
+    override fun onAccountError(accountId: String, userId: String, providerId: String, errorCode: String) {
+        Log.d("accountId", accountId)
+        Log.d("userId", userId)
+        Log.d("providerId", providerId)
+        Log.d("errorCode", errorCode)
+        //TODO("Relevant business code if account connected error")
     }
 
 }
@@ -196,8 +204,13 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
     }
 
     @JavascriptInterface
-    fun onTokenExpired(updateToken: String) {
-        listener.onTokenExpired(updateToken)
+    fun onTokenExpired() {
+        listener.onTokenExpired()
+    }
+
+    @JavascriptInterface
+    fun onAccountError(accountId: String, userId: String, providerId: String, errorCode: String ) {
+        listener.onAccountError(accountId, userId, providerId, errorCode)
     }
 }
 
@@ -208,7 +221,8 @@ interface SmileBridgeInterface {
     fun onAccountCreated(accountId: String, userId: String, providerId: String)
     fun onAccountConnected(accountId: String, userId: String, providerId: String)
     fun onAccountRemoved(accountId: String, userId: String, providerId: String)
+    fun onAccountError(accountId: String, userId: String, providerId: String, errorCode: String)
     fun onClose()
     fun onUploadsCreated(uploads: String?, userId: String)
-    fun onTokenExpired(updateToken: String)
+    fun onTokenExpired()
 }
