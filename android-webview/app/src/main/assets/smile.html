@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <script src="https://web.smileapi.io/v1/smile.v1.js"></script>
+    <script src="https://web.sit.smileapi.net/v2/smile.v2.js"></script>
     <script type="text/javascript">
         /**
          * Get the "initParam" parameter value from the link url.
@@ -28,7 +28,7 @@
             return null;
         }
 
-        const initData = JSON.parse(getInitParamJsonString());
+        const data = JSON.parse(getInitParamJsonString());
         const smileLinkModal = new SmileLinkModal({
             /**
              * The Link API Host, Sandbox and Production mode are using different API hosts.
@@ -38,7 +38,7 @@
             /**
              * User token passed from your backend service which is obtained from the Smile Open API.
              */
-            userToken: data.accessToken,
+            userToken: data.userToken,
 
             /**
              * Use provider id to promote certain providers to the top of the list. Example ['upwork', 'freelancer'].
@@ -60,6 +60,11 @@
              */
             onAccountCreated: ({ accountId, userId, providerId }) => {
                 console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                /**
+                 * Kotlin onAccountCreated communication method
+                 */
+                smile.onAccountCreated(accountId, userId, providerId)
+
             },
 
             /**
@@ -67,6 +72,11 @@
              */
             onAccountConnected: ({ accountId, userId, providerId }) => {
                 console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                /**
+                 * Kotlin onAccountConnected communication method
+                 */
+                smile.onAccountConnected(accountId, userId, providerId)
+
             },
 
             /**
@@ -74,6 +84,11 @@
              */
             onAccountRemoved: ({ accountId, userId, providerId }) => {
                 console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                /**
+                 * Kotlin onAccountRemoved communication method
+                 */
+                smile.onAccountRemoved(accountId, userId, providerId)
+
             },
 
             /**
@@ -81,6 +96,10 @@
              */
             onTokenExpired: () => {
                 console.log('Token expired');
+                /**
+                 * Kotlin onTokenExpired communication method
+                 */
+                smile.onTokenExpired()
             },
 
             /**
@@ -88,6 +107,11 @@
              */
             onClose: () => {
                 console.log('Link closed')
+                /**
+                 * Kotlin onClose communication method
+                 */
+                smile.onClose()
+
             },
 
             /**
@@ -95,6 +119,10 @@
              */
             onAccountError: ({ accountId, userId, providerId, errorCode }) => {
                 console.log('Account error: ', accountId, ' User ID:', userId, ' Provider ID:', providerId, 'Error Code:', errorCode)
+                /**
+                 * Kotlin onAccountError communication method
+                 */
+                smile.onAccountError(accountId, userId, providerId, errorCode)
             },
 
             /**
@@ -102,6 +130,10 @@
              */
             onUploadsCreated: ({ uploads, userId }) => {
                 console.log('Uploads: ', uploads, ' User ID:', userId);
+                /**
+                 * Kotlin onUploadsCreated communication method
+                 */
+                smile.onUploadsCreated(uploads, userId)
             },
         });
         smileLinkModal.open()
