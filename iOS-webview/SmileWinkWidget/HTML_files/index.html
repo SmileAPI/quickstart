@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <link rel="icon" href="smileicon32.webp" sizes="32x32">
+    <link rel="icon" href="smileicon192.webp" sizes="192x192">
+    <title>Smile Wink Quickstart</title>
+    <!-- <script src="./smile.v2.js"></script> -->
+</head>
+
+<body>
+    <script src="https://web.smileapi.io/v2/smile.v2.js"></script>
+    <script type="text/javascript">
+        /**
+         * You will need to update below server if you are using a different port number in your .env file.
+         */
+        fetch('http://127.0.0.1:8000/api/create_link_token')
+            .then(response => response.json())
+            .then(data => {
+                const smileLinkModal = new SmileLinkModal({
+
+                    /**
+                     * The Link API Host, Sandbox and Production mode are using different API hosts.
+                     */
+                    apiHost: data.apiHost,
+
+                    /**
+                     * User token passed from your backend service which is obtained from the Smile Open API.
+                     */
+                    userToken: data.accessToken,
+
+                    /**
+                     * Use provider id to promote certain providers to the top of the list.Maximum 10 providers in topProviders. Example ['upwork', 'freelancer'].
+                     */
+                    topProviders: data.topProviders,
+
+                    /**
+                     * Use provider id to filter provider list. Example ['upwork', 'freelancer']
+                     */
+                    providers: data.providers,
+
+                    /**
+                     * Enable or disable file uploads.
+                     */
+                    enableUpload: data.enableUpload,
+
+                    /**
+                     * Account login callback.
+                     */
+                    onAccountCreated: ({ accountId, userId, providerId }) => {
+                        console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                        window.webkit.messageHandlers.onAccountCreated.postMessage({
+                            'Account created': accountId,
+                            'User ID': userId,
+                            'Provider ID': providerId
+                        });
+                    },
+
+                    /**
+                     * Account login success callback.
+                     */
+                    onAccountConnected: ({ accountId, userId, providerId }) => {
+                        console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                        window.webkit.messageHandlers.onAccountConnected.postMessage({
+                            'Account connected': accountId,
+                            'User ID': userId,
+                            'Provider ID': providerId
+                        });
+                    },
+
+                    /**
+                     * Account revoke callback.
+                     */
+                    onAccountRemoved: ({ accountId, userId, providerId }) => {
+                        console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                        window.webkit.messageHandlers.onAccountRemoved.postMessage({
+                            'Account removed': accountId,
+                            'User ID': userId,
+                            'Provider ID': providerId
+                        });
+                    },
+
+                    /**
+                     * Token expired callback.
+                     */
+                    onTokenExpired: () => {
+                        console.log('Token expired');
+                        window.webkit.messageHandlers.onTokenExpired.postMessage('Token expired');
+                    },
+
+                    /**
+                     * Smile link SDK close callback.
+                     */
+                    onClose: () => {
+                        console.log('Link closed')
+                        window.webkit.messageHandlers.onClose.postMessage('Link closed');
+                    },
+
+                    /**
+                     * Account connect error callback.
+                     */
+                    onAccountError: ({ accountId, userId, providerId, errorCode }) => {
+                        console.log('Account error: ', accountId, ' User ID:', userId, ' Provider ID:', providerId, 'Error Code:', errorCode)
+                        window.webkit.messageHandlers.onAccountError.postMessage({
+                            'Account error': accountId,
+                            'User ID': userId,
+                            'Provider ID': providerId
+                        });
+                    },
+
+                    /**
+                     * Uploads submit callback.
+                     */
+                    onUploadsCreated: ({ uploads, userId }) => {
+                        console.log('Uploads: ', uploads, ' User ID:', userId);
+                        window.webkit.messageHandlers.onUploadsCreated.postMessage({
+                            'Uploads': uploads,
+                            'User ID': userId
+                        });
+                    },
+                });
+                smileLinkModal.open()
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+
+</html>

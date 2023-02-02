@@ -107,6 +107,14 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 2. After all dependencies successfully loaded, start the your App.
 
+### Additionly, if you want to use Wink Javascript SDK in iOS Webview
+
+Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
+
+1. Import the /iOS-webview folder in your Xcode
+
+2. After all dependencies successfully loaded, start the your App.
+
 ### Additionly, if you want to use Wink Javascript SDK in React Native Webview
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
