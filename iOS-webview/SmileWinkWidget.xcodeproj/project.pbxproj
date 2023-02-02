@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD5A966C298A582800E7DB6A /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5A966B298A582800E7DB6A /* SwiftUIView.swift */; };
+		BD642C852988F90F00BEE66A /* SmileWinkWidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD642C842988F90F00BEE66A /* SmileWinkWidgetApp.swift */; };
+		BD642C872988F90F00BEE66A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD642C862988F90F00BEE66A /* ContentView.swift */; };
+		BD642C892988F91000BEE66A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD642C882988F91000BEE66A /* Assets.xcassets */; };
+		BD642C8C2988F91000BEE66A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD642C8B2988F91000BEE66A /* Preview Assets.xcassets */; };
+		BD642C962988F91000BEE66A /* SmileWinkWidgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD642C952988F91000BEE66A /* SmileWinkWidgetTests.swift */; };
+		BD642CA02988F91000BEE66A /* SmileWinkWidgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD642C9F2988F91000BEE66A /* SmileWinkWidgetUITests.swift */; };
+		BD642CA22988F91000BEE66A /* SmileWinkWidgetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD642CA12988F91000BEE66A /* SmileWinkWidgetUITestsLaunchTests.swift */; };
+		BD642CB22988FBF300BEE66A /* HTML_files in Resources */ = {isa = PBXBuildFile; fileRef = BD642CB12988FBF300BEE66A /* HTML_files */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD642C922988F91000BEE66A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD642C792988F90F00BEE66A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD642C802988F90F00BEE66A;
+			remoteInfo = SmileWinkWidget;
+		};
+		BD642C9C2988F91000BEE66A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD642C792988F90F00BEE66A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD642C802988F90F00BEE66A;
+			remoteInfo = SmileWinkWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BD5A966B298A582800E7DB6A /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		BD642C812988F90F00BEE66A /* SmileWinkWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmileWinkWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD642C842988F90F00BEE66A /* SmileWinkWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmileWinkWidgetApp.swift; sourceTree = "<group>"; };
+		BD642C862988F90F00BEE66A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD642C882988F91000BEE66A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD642C8B2988F91000BEE66A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD642C912988F91000BEE66A /* SmileWinkWidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmileWinkWidgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD642C952988F91000BEE66A /* SmileWinkWidgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmileWinkWidgetTests.swift; sourceTree = "<group>"; };
+		BD642C9B2988F91000BEE66A /* SmileWinkWidgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmileWinkWidgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD642C9F2988F91000BEE66A /* SmileWinkWidgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmileWinkWidgetUITests.swift; sourceTree = "<group>"; };
+		BD642CA12988F91000BEE66A /* SmileWinkWidgetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmileWinkWidgetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BD642CB12988FBF300BEE66A /* HTML_files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTML_files; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD642C7E2988F90F00BEE66A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD642C8E2988F91000BEE66A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD642C982988F91000BEE66A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD642C782988F90F00BEE66A = {
+			isa = PBXGroup;
+			children = (
+				BD642C832988F90F00BEE66A /* SmileWinkWidget */,
+				BD642C942988F91000BEE66A /* SmileWinkWidgetTests */,
+				BD642C9E2988F91000BEE66A /* SmileWinkWidgetUITests */,
+				BD642C822988F90F00BEE66A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD642C822988F90F00BEE66A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD642C812988F90F00BEE66A /* SmileWinkWidget.app */,
+				BD642C912988F91000BEE66A /* SmileWinkWidgetTests.xctest */,
+				BD642C9B2988F91000BEE66A /* SmileWinkWidgetUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD642C832988F90F00BEE66A /* SmileWinkWidget */ = {
+			isa = PBXGroup;
+			children = (
+				BD642CB12988FBF300BEE66A /* HTML_files */,
+				BD642C842988F90F00BEE66A /* SmileWinkWidgetApp.swift */,
+				BD642C862988F90F00BEE66A /* ContentView.swift */,
+				BD5A966B298A582800E7DB6A /* SwiftUIView.swift */,
+				BD642C882988F91000BEE66A /* Assets.xcassets */,
+				BD642C8A2988F91000BEE66A /* Preview Content */,
+			);
+			path = SmileWinkWidget;
+			sourceTree = "<group>";
+		};
+		BD642C8A2988F91000BEE66A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BD642C8B2988F91000BEE66A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD642C942988F91000BEE66A /* SmileWinkWidgetTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD642C952988F91000BEE66A /* SmileWinkWidgetTests.swift */,
+			);
+			path = SmileWinkWidgetTests;
+			sourceTree = "<group>";
+		};
+		BD642C9E2988F91000BEE66A /* SmileWinkWidgetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD642C9F2988F91000BEE66A /* SmileWinkWidgetUITests.swift */,
+				BD642CA12988F91000BEE66A /* SmileWinkWidgetUITestsLaunchTests.swift */,
+			);
+			path = SmileWinkWidgetUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD642C802988F90F00BEE66A /* SmileWinkWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD642CA52988F91000BEE66A /* Build configuration list for PBXNativeTarget "SmileWinkWidget" */;
+			buildPhases = (
+				BD642C7D2988F90F00BEE66A /* Sources */,
+				BD642C7E2988F90F00BEE66A /* Frameworks */,
+				BD642C7F2988F90F00BEE66A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmileWinkWidget;
+			productName = SmileWinkWidget;
+			productReference = BD642C812988F90F00BEE66A /* SmileWinkWidget.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD642C902988F91000BEE66A /* SmileWinkWidgetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD642CA82988F91000BEE66A /* Build configuration list for PBXNativeTarget "SmileWinkWidgetTests" */;
+			buildPhases = (
+				BD642C8D2988F91000BEE66A /* Sources */,
+				BD642C8E2988F91000BEE66A /* Frameworks */,
+				BD642C8F2988F91000BEE66A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD642C932988F91000BEE66A /* PBXTargetDependency */,
+			);
+			name = SmileWinkWidgetTests;
+			productName = SmileWinkWidgetTests;
+			productReference = BD642C912988F91000BEE66A /* SmileWinkWidgetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BD642C9A2988F91000BEE66A /* SmileWinkWidgetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD642CAB2988F91000BEE66A /* Build configuration list for PBXNativeTarget "SmileWinkWidgetUITests" */;
+			buildPhases = (
+				BD642C972988F91000BEE66A /* Sources */,
+				BD642C982988F91000BEE66A /* Frameworks */,
+				BD642C992988F91000BEE66A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD642C9D2988F91000BEE66A /* PBXTargetDependency */,
+			);
+			name = SmileWinkWidgetUITests;
+			productName = SmileWinkWidgetUITests;
+			productReference = BD642C9B2988F91000BEE66A /* SmileWinkWidgetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD642C792988F90F00BEE66A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					BD642C802988F90F00BEE66A = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					BD642C902988F91000BEE66A = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = BD642C802988F90F00BEE66A;
+					};
+					BD642C9A2988F91000BEE66A = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = BD642C802988F90F00BEE66A;
+					};
+				};
+			};
+			buildConfigurationList = BD642C7C2988F90F00BEE66A /* Build configuration list for PBXProject "SmileWinkWidget" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD642C782988F90F00BEE66A;
+			productRefGroup = BD642C822988F90F00BEE66A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD642C802988F90F00BEE66A /* SmileWinkWidget */,
+				BD642C902988F91000BEE66A /* SmileWinkWidgetTests */,
+				BD642C9A2988F91000BEE66A /* SmileWinkWidgetUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD642C7F2988F90F00BEE66A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD642CB22988FBF300BEE66A /* HTML_files in Resources */,
+				BD642C8C2988F91000BEE66A /* Preview Assets.xcassets in Resources */,
+				BD642C892988F91000BEE66A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD642C8F2988F91000BEE66A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD642C992988F91000BEE66A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD642C7D2988F90F00BEE66A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD642C872988F90F00BEE66A /* ContentView.swift in Sources */,
+				BD642C852988F90F00BEE66A /* SmileWinkWidgetApp.swift in Sources */,
+				BD5A966C298A582800E7DB6A /* SwiftUIView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD642C8D2988F91000BEE66A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD642C962988F91000BEE66A /* SmileWinkWidgetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD642C972988F91000BEE66A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD642CA22988F91000BEE66A /* SmileWinkWidgetUITestsLaunchTests.swift in Sources */,
+				BD642CA02988F91000BEE66A /* SmileWinkWidgetUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD642C932988F91000BEE66A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD642C802988F90F00BEE66A /* SmileWinkWidget */;
+			targetProxy = BD642C922988F91000BEE66A /* PBXContainerItemProxy */;
+		};
+		BD642C9D2988F91000BEE66A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD642C802988F90F00BEE66A /* SmileWinkWidget */;
+			targetProxy = BD642C9C2988F91000BEE66A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BD642CA32988F91000BEE66A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD642CA42988F91000BEE66A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD642CA62988F91000BEE66A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmileWinkWidget/Preview Content\"";
+				DEVELOPMENT_TEAM = 9KDTFXDB54;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smile.SmileWinkWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BD642CA72988F91000BEE66A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmileWinkWidget/Preview Content\"";
+				DEVELOPMENT_TEAM = 9KDTFXDB54;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smile.SmileWinkWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BD642CA92988F91000BEE66A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KDTFXDB54;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smile.SmileWinkWidgetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmileWinkWidget.app/SmileWinkWidget";
+			};
+			name = Debug;
+		};
+		BD642CAA2988F91000BEE66A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KDTFXDB54;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smile.SmileWinkWidgetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmileWinkWidget.app/SmileWinkWidget";
+			};
+			name = Release;
+		};
+		BD642CAC2988F91000BEE66A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KDTFXDB54;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smile.SmileWinkWidgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmileWinkWidget;
+			};
+			name = Debug;
+		};
+		BD642CAD2988F91000BEE66A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KDTFXDB54;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = smile.SmileWinkWidgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SmileWinkWidget;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD642C7C2988F90F00BEE66A /* Build configuration list for PBXProject "SmileWinkWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD642CA32988F91000BEE66A /* Debug */,
+				BD642CA42988F91000BEE66A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD642CA52988F91000BEE66A /* Build configuration list for PBXNativeTarget "SmileWinkWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD642CA62988F91000BEE66A /* Debug */,
+				BD642CA72988F91000BEE66A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD642CA82988F91000BEE66A /* Build configuration list for PBXNativeTarget "SmileWinkWidgetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD642CA92988F91000BEE66A /* Debug */,
+				BD642CAA2988F91000BEE66A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD642CAB2988F91000BEE66A /* Build configuration list for PBXNativeTarget "SmileWinkWidgetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD642CAC2988F91000BEE66A /* Debug */,
+				BD642CAD2988F91000BEE66A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD642C792988F90F00BEE66A /* Project object */;
+}
