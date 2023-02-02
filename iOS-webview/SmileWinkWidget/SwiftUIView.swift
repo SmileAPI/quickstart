@@ -33,21 +33,7 @@ import WebKit
      }
      class ContentController: NSObject, WKScriptMessageHandler {
              func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-                 if message.name == "onAccountCreated"{
-                    print(message.body)
-                 }else if message.name == "onAccountConnected"{
-                    print(message.body)
-                 }else if message.name == "onAccountError"{
-                    print(message.body)
-                 }else if message.name == "onAccountRemoved"{
-                    print(message.body)
-                 }else if message.name == "onTokenExpired"{
-                    print(message.body)
-                 }else if message.name == "onClose"{
-                    print(message.body)
-                 }else if message.name == "onUploadsCreated"{
-                    print(message.body)
-                 }
+                print(message.body)
              }
          }
 
