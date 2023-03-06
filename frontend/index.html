@@ -76,10 +76,13 @@
                     },
 
                     /**
-                     * Smile link SDK close callback.
+                     * Smile link SDK close callback.If you want to know which button the user clicked to trigger the close event, you can pass parameters like this. 
+                     * onClose:({reason})=>{} 
+                     * If the value of reason is equal to "close", it means that the user clicked the close icon in the upper right corner of the page to close the SDK
+                     * If the value of reason is equal to "exit", it means that the user clicked the DONE button on the connection page to close the SDK
                      */
-                    onClose: () => {
-                        console.log('Link closed')
+                    onClose: ({ reason }) => {
+                        console.log('Link closed, reason:', reason)
                     },
 
                     /**
