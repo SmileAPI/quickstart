@@ -107,14 +107,6 @@
                             "userId:", userId,
                             "account:", account,
                             "archive:", archive);
-                        window.webkit.messageHandlers.onUploadsCreated.postMessage({
-                            'eventName': eventName,
-                            'eventTime': eventTime,
-                            'mode': mode,
-                            'userId': userId,
-                            "account": account,
-                            "archive": archive
-                        });
                     }
                 });
                 smileLinkModal.open()
