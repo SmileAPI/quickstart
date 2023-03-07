@@ -98,6 +98,18 @@
                     onUploadsCreated: ({ uploads, userId }) => {
                         console.log('Uploads: ', uploads, ' User ID:', userId);
                     },
+
+                    /**
+                     * User event callback is used to capture all the user activities from Smile Wink SDK
+                     */
+                    onUIEvent: ({ eventName, eventTime, mode, userId, account, archive }) => {
+                        console.log('eventName:', eventName,
+                            "eventTime:", eventTime,
+                            "mode:", mode,
+                            "userId:", userId,
+                            "account:", account,
+                            "archive:", archive);
+                    }
                 });
                 smileLinkModal.open()
             })
