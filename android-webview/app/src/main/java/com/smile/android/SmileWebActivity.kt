@@ -13,6 +13,8 @@ import com.google.gson.reflect.TypeToken
 import com.smile.android.entity.ResultModel
 import com.smile.android.entity.SmileJsModel
 import com.smile.android.util.HttpCallBack
+import com.smile.android.entity.AccountModel
+import com.smile.android.entity.ArchiveModel
 import com.smile.android.util.OkhttpUtils
 
 
@@ -173,6 +175,15 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         //TODO("Relevant business code if account connected error")
     }
 
+    override fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: AccountModel?, archive:ArchiveModel?){
+        Log.d("eventName", eventName)
+        Log.d("eventTime", eventTime)
+        Log.d("mode", mode)
+        Log.d("userId", userId.toString())
+        Log.d("account", account.toString())
+        Log.d("archive", archive.toString())
+    }
+
 }
 
 
@@ -212,6 +223,11 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
     fun onAccountError(accountId: String, userId: String, providerId: String, errorCode: String ) {
         listener.onAccountError(accountId, userId, providerId, errorCode)
     }
+
+    @JavascriptInterface
+    fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: AccountModel?, archive:ArchiveModel?){
+        listener.onUIEvent(eventName, eventTime, mode, userId, account, archive)
+    }
 }
 
 /**
@@ -225,4 +241,5 @@ interface SmileBridgeInterface {
     fun onClose()
     fun onUploadsCreated(uploads: String?, userId: String)
     fun onTokenExpired()
+    fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: AccountModel?, archive:ArchiveModel?)
 }
