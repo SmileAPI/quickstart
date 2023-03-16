@@ -13,12 +13,12 @@ data class SmileJsModel(
 ) : BaseModel()
 
 data class  AccountModel(
-    var providerId: String?,
-    var accountId: String?,
+    var providerId: String,
+    var accountId: String,
 ): BaseModel()
 
 data class  ArchiveModel(
-    var fileType: String?
+    var fileType: String
 ): BaseModel()
 
 data class ResultModel(

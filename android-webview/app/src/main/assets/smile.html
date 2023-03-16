@@ -145,12 +145,12 @@
                     "eventTime:", eventTime,
                     "mode:", mode,
                     "userId:", userId,
-                    "account:", account,
-                    "archive:", archive);
+                    `account:`, account,
+                    `archive:`, archive);
                 /**
                  * Kotlin onUIEvent communication method
                  */
-                smile.onUIEvent(eventName, eventTime, mode, userId, account, archive)
+                smile.onUIEvent(eventName, eventTime, mode, userId, JSON.stringify(account), JSON.stringify(archive))
             }
         });
         smileLinkModal.open()
