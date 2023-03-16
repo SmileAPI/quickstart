@@ -175,13 +175,18 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         //TODO("Relevant business code if account connected error")
     }
 
-    override fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: AccountModel?, archive:ArchiveModel?){
+    override fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: String?, archive:String?) {
         Log.d("eventName", eventName)
         Log.d("eventTime", eventTime)
         Log.d("mode", mode)
         Log.d("userId", userId.toString())
-        Log.d("account", account.toString())
-        Log.d("archive", archive.toString())
+
+        if (account != null) {
+            Log.d("account", account.toString())
+        }
+        if (archive != null) {
+            Log.d("archive", archive.toString())
+        }
     }
 
 }
@@ -225,7 +230,7 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
     }
 
     @JavascriptInterface
-    fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: AccountModel?, archive:ArchiveModel?){
+    fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: String?, archive:String?){
         listener.onUIEvent(eventName, eventTime, mode, userId, account, archive)
     }
 }
@@ -241,5 +246,5 @@ interface SmileBridgeInterface {
     fun onClose()
     fun onUploadsCreated(uploads: String?, userId: String)
     fun onTokenExpired()
-    fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: AccountModel?, archive:ArchiveModel?)
+    fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: String?, archive:String?)
 }
