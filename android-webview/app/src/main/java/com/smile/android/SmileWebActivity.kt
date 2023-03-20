@@ -162,6 +162,12 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
         //TODO("Relevant business code after upload")
     }
 
+     override fun onUploadsRemoved(uploads: String?, userId: String) {
+        Log.d("uploads", uploads.toString())
+        Log.d("userId", userId)
+        //TODO("Relevant business code after upload")
+    }
+
     override fun onTokenExpired() {
         Log.d("token expired","")
         //TODO("Relevant business code if then token expired")
@@ -215,6 +221,11 @@ class SmileJsCallBack(val listener: SmileBridgeInterface) : Any() {
     }
 
     @JavascriptInterface
+    fun onUploadsRemoved(uploads: String?, userId: String) {
+        listener.onUploadsRemoved(uploads, userId)
+    }
+
+    @JavascriptInterface
     fun onAccountCreated(accountId: String, userId: String, providerId: String) {
         listener.onAccountCreated(accountId, userId, providerId)
     }
@@ -245,6 +256,7 @@ interface SmileBridgeInterface {
     fun onAccountError(accountId: String, userId: String, providerId: String, errorCode: String)
     fun onClose()
     fun onUploadsCreated(uploads: String?, userId: String)
+    fun onUploadsRemoved(uploads: String?, userId: String)
     fun onTokenExpired()
     fun onUIEvent(eventName: String, eventTime: String, mode: String, userId: String?, account: String?, archive:String?)
 }
