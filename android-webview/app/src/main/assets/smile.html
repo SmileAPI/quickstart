@@ -138,6 +138,17 @@
             },
 
             /**
+             * Uploads revoke callback.
+             */
+            onUploadsRemoved: ({ uploads, userId }) => {
+                console.log('Uploads: ', uploads, ' User ID:', userId);
+                /**
+                 * Kotlin onUploadsRemoved communication method
+                 */
+                smile.onUploadsRemoved(uploads, userId)
+            },
+
+            /**
              * User event callback is used to capture all the user activities from Smile Wink SDK
              */
             onUIEvent: ({ eventName, eventTime, mode, userId, account, archive }) => {

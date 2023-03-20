@@ -29,6 +29,7 @@ import WebKit
          uiView.configuration.userContentController.add(contentController,name: "onTokenExpired")
          uiView.configuration.userContentController.add(contentController,name: "onClose")
          uiView.configuration.userContentController.add(contentController,name: "onUploadsCreated")
+         uiView.configuration.userContentController.add(contentController,name: "onUploadsRemoved")
          uiView.configuration.userContentController.add(contentController,name: "onUIEvent")
          uiView.load(URLRequest(url: url))
      }

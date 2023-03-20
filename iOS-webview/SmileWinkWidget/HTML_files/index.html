@@ -123,6 +123,17 @@
                     },
 
                     /**
+                     * Uploads revoke callback.
+                     */
+                    onUploadsRemoved: ({ uploads, userId }) => {
+                        console.log('Uploads: ', uploads, ' User ID:', userId);
+                        window.webkit.messageHandlers.onUploadsRemoved.postMessage({
+                            'Uploads': uploads,
+                            'User ID': userId
+                        });
+                    },
+
+                    /**
                      * User event callback is used to capture all the user activities from Smile Wink SDK
                      */
                     onUIEvent: ({ eventName, eventTime, mode, userId, account, archive }) => {
