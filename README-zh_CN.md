@@ -1,8 +1,8 @@
 ![Smile Banner](https://a-cloud.b-cdn.net/media/iW=2340&iH=726&oX=0&oY=0&cW=2340&cH=726/f814cf1173a99228c8a8fb75f74e9d1b.png)
 
-## Quickstart Sample Implementation
+## 快速上手 Smile Wink Widget
 
-> 我们在 [Github](https://github.com/SmileAPI/quickstart) 中提供了示例代码，您可以根据自己的要求下载并修改。
+> 我们在 [Github](https://github.com/SmileAPI/quickstart) 中提供了示例代码，您可以根据自己的需求下载并修改。
 
 示例代码中包含了一个 Node.js 服务，这个服务调用了 Smile 的 API 创建了一个 token，该 token 是被用来初始化 Wink Widget 的，这样才可以正常启动 Wink Widget。
 
