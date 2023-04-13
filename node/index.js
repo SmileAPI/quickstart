@@ -49,34 +49,3 @@ app.get('/api/create_link_token', async (request, response, next) => {
 app.listen(APP_PORT, () => {
     console.log(`Example app listening at http://localhost:${APP_PORT}`);
 });
-
-// Loop
-const getJSON = bent('json');
-let items = [];
-let init = false;
-const checkNewIdentities = async () => {
-    let cursor = '';
-    let size = 2;
-    let result;
-    try {
-        result = await getJSON(
-            `${OPEN_API_HOST}/identities?size=${size}&cursor=${cursor}`,
-            {},
-            { Authorization: 'Basic ' + SMILE_OPEN_API_SIGNATURE }
-        );
-    } catch (error) {
-        console.log('error: ', error);
-    }
-    if (result && result.data.items.length > 0) {
-        result.data.items.forEach((item) => {
-            if (items.indexOf(item.id) < 0) {
-                items.push(item.id);
-                if (init) {
-                    console.log(item);
-                }
-            }
-        });
-    }
-    init = true;
-};
-setInterval(checkNewIdentities, 5000);
