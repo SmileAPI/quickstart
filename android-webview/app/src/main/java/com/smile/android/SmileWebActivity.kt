@@ -62,10 +62,6 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
                             val model: ResultModel = Gson().fromJson(response, type)
                             val jsModel = SmileJsModel(
                                 /**
-                                 * The Link API URI. Note: Sandbox and Production modes are using different API URIs.
-                                 */
-                                apiHost = model.apiHost,
-                                /**
                                  * Use provider id to filter provider list. Example ['upwork', 'freelancer']
                                  */
                                 providers = model.providers,

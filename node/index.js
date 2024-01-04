@@ -28,10 +28,6 @@ app.get('/api/create_link_token', async (request, response, next) => {
 
     const linkInitData = createUserResult.data.token;
     /**
-     * The Link API Host, Sandbox and Production mode are using different API hosts.
-     */
-    linkInitData.apiHost = LINK_API_HOST;
-    /**
      * Use provider id to promote certain providers to the top of the list. Example ['upwork', 'freelancer'].
      */
     linkInitData.topProviders = [];
