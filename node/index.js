@@ -8,7 +8,6 @@ const APP_PORT = process.env.APP_PORT;
 const API_KEY = process.env.API_KEY;
 const API_SECRET = process.env.API_SECRET;
 const OPEN_API_HOST = process.env.OPEN_API_HOST;
-const LINK_API_HOST = process.env.LINK_API_HOST;
 // Configuration
 const SMILE_OPEN_API_SIGNATURE = Buffer.from(
     API_KEY + ':' + API_SECRET
