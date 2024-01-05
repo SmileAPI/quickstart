@@ -26,7 +26,6 @@ const html2 = `";` + `let host = "`;
 const html3 =
     `";` +
     `const smileLinkModal = new SmileLinkModal({` +
-    `apiHost: host,` + // linkApiHost
     `userToken: token,` + // use for Wink Widget init token, create by your backend service
     `templateId: "",` + // The winkTemplateId configured in developer-portal
     `enableSampleModel: true,` + // enable sample model, please don't use it in production environment

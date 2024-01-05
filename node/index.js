@@ -8,7 +8,6 @@ const APP_PORT = process.env.APP_PORT;
 const API_KEY = process.env.API_KEY;
 const API_SECRET = process.env.API_SECRET;
 const OPEN_API_HOST = process.env.OPEN_API_HOST;
-const LINK_API_HOST = process.env.LINK_API_HOST;
 // Configuration
 const SMILE_OPEN_API_SIGNATURE = Buffer.from(
     API_KEY + ':' + API_SECRET
@@ -27,10 +26,6 @@ app.get('/api/create_link_token', async (request, response, next) => {
     );
 
     const linkInitData = createUserResult.data.token;
-    /**
-     * The Link API Host, Sandbox and Production mode are using different API hosts.
-     */
-    linkInitData.apiHost = LINK_API_HOST;
     /**
      * Use provider id to promote certain providers to the top of the list. Example ['upwork', 'freelancer'].
      */

@@ -5,7 +5,7 @@ import java.util.*
 
 
 data class SmileJsModel(
-    var apiHost: String,
+    var apiHost: String? = null,
     var providers: List<String> = emptyList(),
     var userToken: String,
     var enableUpload: Boolean = false,
@@ -25,7 +25,7 @@ data class ResultModel(
     var expiresAt: String,
     var mode: String,
     var accessToken: String,
-    var apiHost: String,
+    var apiHost: String? = null,
     var providers: List<String> = emptyList(),
     var enableUpload: Boolean = false,
     var topProviders: List<String> = emptyList()
