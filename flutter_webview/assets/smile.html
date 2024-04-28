@@ -11,8 +11,8 @@
 <body>
     <script src="https://web.smileapi.io/v2/smile.v2.js"></script>
     <script type="text/javascript">
-        // if you want running in android emulator, use 10.0.2.2 instead of localhost
-        fetch('http://127.0.0.1:8000/api/create_link_token')
+        // if you want running in android emulator, use 10.0.2.2 instead of 127.0.0.1
+        fetch('http://10.0.2.2:8000/api/create_link_token')
             .then(response => response.json())
             .then(data => {
                 const smileLinkModal = new SmileLinkModal({
