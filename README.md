@@ -71,7 +71,7 @@ LINK_API_HOST=<linkApiURL>
 > For example on the Mac you can open up the Terminal and run:
 
 ```bash
-curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
+    curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 ```
 
 > For Windows you can [download the installer](https://nodejs.org/en/#home-downloadhead).
@@ -83,8 +83,8 @@ curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.
 > In Mac or Linux, you will need to open up the Terminal. If you are using Windows, you can go to the command line. Make sure you are still in the /node directory of the Quickstart files you just downloaded onto your machine.
 
 ```bash
-npm install --global yarn
-yarn install
+    npm install --global yarn
+    yarn install
 ```
 
 > You may need to run as a Super User if you don't have enough permissions. On a Mac or Linux machine, you can run the commands as a superuser by using 'sudo'. On Windows, you can run the command with an administrator trust-level, or by right-clicking the program in the UI and choosing "run as administrator."
@@ -92,14 +92,14 @@ yarn install
 8. Run the server:
 
 ```bash
-node index.js
+    node index.js
 ```
 
 9. Open up the your browser and open up the example Wink Widget. For example, if you specified port:8000 in your ".env" configuration file, open up http://127.0.0.1:8000 in your web browser.
 
 10. Sit back, relax, and pat yourself on the back for a job well done!
 
-### Additionly, if you want to use Wink Javascript SDK in Android Webview
+### Additionally, if you want to use Wink Javascript SDK in Android Webview
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
@@ -107,7 +107,7 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 2. After all dependencies successfully loaded, start the your App.
 
-### Additionly, if you want to use Wink Javascript SDK in iOS Webview
+### Additionally, if you want to use Wink Javascript SDK in iOS Webview
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
@@ -115,17 +115,17 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 2. After all dependencies successfully loaded, start the your App.
 
-### Additionly, if you want to use Wink Javascript SDK in React Native Webview
+### Additionally, if you want to use Wink Javascript SDK in React Native Webview
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
-1. Create a React Native project and configure the React Native development environment to ensure normal operation [you can find the instructions](https://reactnative.dev/docs/getting-started)
+1. Configure the React Native development environment to ensure normal operation [you can find the instructions](https://reactnative.dev/docs/getting-started)
 
 2. Run Yarn with [npm package manager](https://www.npmjs.com/) which is included with Node.js and enter the following commands:
 
 ```bash
-npm install --global yarn
-yarn install
+    npm install --global yarn
+    yarn install
 ```
 
 3. Start your App.
@@ -139,3 +139,37 @@ yarn install
     // Android
     yarn react-native run-android
 ```
+
+### Additionally, if you want to use Wink Javascript SDK in Flutter Webview
+
+Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
+
+1. Configure the Flutter development environment to ensure normal operation [you can find the instructions](https://flutter.dev/docs/get-started/install)
+
+2. Change to the Flutter project directory:
+
+```bash
+    cd flutter_webview
+```
+
+3. Run the following commands to fetch the project dependencies and prepare your Flutter application for launch:
+
+```bash
+    flutter pub get
+```
+
+4. View the list of available devices and select the one you want to run your app on:
+
+```bash
+    flutter devices
+```
+
+This command will list all connected and available devices.
+
+5. Start the project:
+
+```bash
+    flutter run
+```
+
+If you have multiple devices connected, you may need to specify the target device.
