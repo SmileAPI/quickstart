@@ -146,6 +146,10 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 1. Configure the Flutter development environment to ensure normal operation [you can find the instructions](https://flutter.dev/docs/get-started/install)
 
+🚨 **Attention** 🚨
+
+When running the project on the Android emulator, please ensure to replace `127.0.0.1` with `10.0.2.2` in all request URLs within the embedded HTML files (`flutter_webview/assets/smile.html`). This is because the Android emulator uses the `10.0.2.2` address to access the localhost of the development machine.
+
 2. Change to the Flutter project directory:
 
 ```bash
@@ -173,7 +177,3 @@ This command will list all connected and available devices.
 ```
 
 If you have multiple devices connected, you may need to specify the target device.
-
-🚨 **Attention** 🚨
-
-When running the project on the Android emulator, please ensure to replace `127.0.0.1` with `10.0.2.2` in all request URLs within the embedded HTML files (`flutter_webview/assets/smile.html`). This is because the Android emulator uses the `10.0.2.2` address to access the localhost of the development machine.

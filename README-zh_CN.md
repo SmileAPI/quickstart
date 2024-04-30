@@ -128,6 +128,9 @@ yarn install
 
 1. 按照 Flutter [官方安装指南](https://flutter.dev/docs/get-started/install) 配置您的 Flutter 开发环境，以确保您的环境能够正常编译和运行 Flutter 应用程序。
 
+🚨 **注意事项** 🚨
+当你在安卓模拟器上运行项目时，请确保在嵌入的 HTML(`flutter_webview/assets/smile.html`) 文件中的所有请求地址上，将 `127.0.0.1` 更改为 `10.0.2.2`。这是因为安卓模拟器使用 `10.0.2.2` 地址来访问开发机器的 localhost。
+
 2. 打开命令行或终端，切换到示例代码的 Flutter 项目目录：
 
 ```bash
@@ -155,6 +158,3 @@ yarn install
 ```
 
 如果您有多个设备连接，可能需要指定目标设备。
-
-🚨**注意事项**🚨
-当你在安卓模拟器上运行项目时，请确保在嵌入的 HTML(`flutter_webview/assets/smile.html`) 文件中的所有请求地址上，将 `127.0.0.1` 更改为 `10.0.2.2`。这是因为安卓模拟器使用 `10.0.2.2` 地址来访问开发机器的 localhost。
