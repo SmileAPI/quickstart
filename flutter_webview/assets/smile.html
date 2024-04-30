@@ -70,6 +70,7 @@
                      * onClose:({reason})=>{} 
                      * If the value of reason is equal to "close", it means that the user clicked the close icon in the upper right corner of the page to close the SDK
                      * If the value of reason is equal to "exit", it means that the user clicked the DONE button on the connection page to close the SDK
+                     * If the value of reason is equal to "error", it means that the user clicked the Exit button on the error page to close the SDK
                      */
                     onClose: ({ reason }) => {
                         console.log('Link closed, reason: ', reason)

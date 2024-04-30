@@ -173,3 +173,7 @@ This command will list all connected and available devices.
 ```
 
 If you have multiple devices connected, you may need to specify the target device.
+
+🚨 **Attention** 🚨
+
+When running the project on the Android emulator, please ensure to replace `127.0.0.1` with `10.0.2.2` in all request URLs within the embedded HTML files (`flutter_webview/assets/smile.html`). This is because the Android emulator uses the `10.0.2.2` address to access the localhost of the development machine.
