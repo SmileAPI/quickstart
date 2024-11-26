@@ -13,8 +13,6 @@ import com.google.gson.reflect.TypeToken
 import com.smile.android.entity.ResultModel
 import com.smile.android.entity.SmileJsModel
 import com.smile.android.util.HttpCallBack
-import com.smile.android.entity.AccountModel
-import com.smile.android.entity.ArchiveModel
 import com.smile.android.util.OkhttpUtils
 
 
@@ -115,14 +113,33 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
                 fileChooserParams: FileChooserParams?
             ): Boolean {
                 this@SmileWebActivity.filePathCallback = filePathCallback
-                val i = Intent(Intent.ACTION_GET_CONTENT)
-                i.addCategory(Intent.CATEGORY_OPENABLE)
-                i.type = "image/*"
+                val i = Intent(Intent.ACTION_GET_CONTENT).apply {
+                    type = "image/*"
+                    putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "application/pdf"))
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                }
                 startActivityForResult(i, 1)
                 return true
             }
         }
 
+    }
+
+    /**
+     * Archive upload file function related configurations.
+     * If without this function, when choose the file, the page may not display the file.
+     */
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1) {
+            val result = data?.data
+            if (result != null) {
+                filePathCallback?.onReceiveValue(arrayOf(result))
+            } else {
+                filePathCallback?.onReceiveValue(null)
+            }
+            filePathCallback = null
+        }
     }
 
     override fun onAccountCreated(accountId: String, userId: String, providerId: String) {
