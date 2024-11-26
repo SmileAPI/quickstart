@@ -119,6 +119,9 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
+> In Mac or Linux, you will need to open up the Terminal. If you are using Windows, you can go to the command line. Make sure you are in the /react-native directory of the Quickstart files you just downloaded onto your machine.
+
+
 1. Configure the React Native development environment to ensure normal operation [you can find the instructions](https://reactnative.dev/docs/getting-started)
 
 2. Run Yarn with [npm package manager](https://www.npmjs.com/) which is included with Node.js and enter the following commands:
@@ -131,8 +134,15 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 3. Start your App.
 
 ```bash
-    // iOS
+    # iOS
     yarn react-native run-ios
+    # if no simulator available, you can try:
+    # yarn react-native run-ios --simulator="iPhone <your simulator version>"
+    # if build failed! try below commands:
+    # pod cache clean --all
+    # pod deintegrate
+    # pod install 
+    
 ```
 
 ```bash
@@ -141,6 +151,9 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 ```
 
 ### Additionally, if you want to use Wink Javascript SDK in Flutter Webview
+
+> In Mac or Linux, you will need to open up the Terminal. If you are using Windows, you can go to the command line. Make sure you are in the /flutter_webview directory of the Quickstart files you just downloaded onto your machine.
+
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
