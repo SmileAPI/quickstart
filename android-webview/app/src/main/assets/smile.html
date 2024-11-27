@@ -122,22 +122,22 @@
              * Uploads submit callback.
              */
             onUploadsCreated: ({ uploads, userId }) => {
-                console.log('Uploads: ', uploads, ' User ID:', userId);
+                console.log('UploadsCreated, Uploads: ', JSON.stringify(uploads), ' User ID:', userId);
                 /**
                  * Kotlin onUploadsCreated communication method
                  */
-                smile.onUploadsCreated(uploads, userId)
+                smile.onUploadsCreated(JSON.stringify(uploads), userId)
             },
 
             /**
              * Uploads revoke callback.
              */
             onUploadsRemoved: ({ uploads, userId }) => {
-                console.log('Uploads: ', uploads, ' User ID:', userId);
+                console.log('Uploads Removed, Uploads: ', JSON.stringify(uploads), ' User ID:', userId);
                 /**
                  * Kotlin onUploadsRemoved communication method
                  */
-                smile.onUploadsRemoved(uploads, userId)
+                smile.onUploadsRemoved(JSON.stringify(uploads), userId)
             },
 
             /**

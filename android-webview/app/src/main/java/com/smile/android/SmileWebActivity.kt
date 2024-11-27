@@ -143,7 +143,7 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
     }
 
     override fun onAccountCreated(accountId: String, userId: String, providerId: String) {
-        Log.d("accountId", accountId)
+        Log.d("onAccountCreated", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
         //TODO("Relevant business code after account created")
@@ -151,14 +151,14 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
 
 
     override fun onAccountConnected(accountId: String, userId: String, providerId: String) {
-        Log.d("accountId", accountId)
+        Log.d("onAccountConnected", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
         //TODO("Relevant business code after account connected")
     }
 
     override fun onAccountRemoved(accountId: String, userId: String, providerId: String) {
-        Log.d("accountId", accountId)
+        Log.d("onAccountRemoved", accountId)
         Log.d("userId", userId)
         Log.d("providerId", providerId)
         //TODO("Relevant business code after account removed")
@@ -170,13 +170,13 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
     }
 
     override fun onUploadsCreated(uploads: String?, userId: String) {
-        Log.d("uploads", uploads.toString())
+        Log.d("onUploadsCreated", uploads.toString())
         Log.d("userId", userId)
         //TODO("Relevant business code after upload")
     }
 
      override fun onUploadsRemoved(uploads: String?, userId: String) {
-        Log.d("uploads", uploads.toString())
+        Log.d("onUploadsRemoved", uploads.toString())
         Log.d("userId", userId)
         //TODO("Relevant business code after upload")
     }
