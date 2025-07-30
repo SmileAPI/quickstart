@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Smile Wink Quickstart</title>
+</head>
+
+<body>
+    <div id="loading" style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+        <h2>Loading...</h2>
+        <p>Waiting for access token from app...</p>
+    </div>
+    
+    <script src="https://web.smileapi.io/v2/smile.v2.js"></script>
+    <script type="text/javascript">
+        let smileLinkModal = null;
+        
+        // Listen for messages from React Native
+        window.addEventListener('message', function(event) {
+            console.log('Received message from React Native:', event.data);
+            
+            try {
+                const data = JSON.parse(event.data);
+                
+                if (data.error) {
+                    showError('Failed to load access token: ' + data.error);
+                    return;
+                }
+                
+                if (data.accessToken) {
+                    initializeSmileSDK(data.accessToken);
+                }
+            } catch (error) {
+                console.error('Error parsing message:', error);
+                showError('Invalid message format');
+            }
+        });
+        
+        // Also listen for document.addEventListener for Android
+        document.addEventListener('message', function(event) {
+            console.log('Received message via document:', event.data);
+            window.postMessage(event.data, '*');
+        });
+        
+        function showError(message) {
+            document.getElementById('loading').innerHTML = `
+                <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+                    <h2 style="color: #e74c3c;">Error</h2>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+        
+        function initializeSmileSDK(accessToken) {
+            console.log('Initializing Smile SDK with token:', accessToken);
+            document.getElementById('loading').style.display = 'none';
+            
+            try {
+                smileLinkModal = new SmileLinkModal({
+                    /**
+                     * User token passed from your backend service which is obtained from the Smile Open API.
+                     */
+                    userToken: accessToken,
+
+                    /**
+                     * Use the template ID to determine how your widget looks like embedded in your app or website.
+                     * You can find and create the template ID in the Smile developer-portal.
+                     * https://developer-portal.getsmileapi.com/link/template
+                     */
+                    // templateId: "<ID of wink template >",
+
+                    /**
+                     * Account login callback.
+                     */
+                    onAccountCreated: ({ accountId, userId, providerId }) => {
+                        console.log('Account created: ', accountId, ' User ID:', userId, ' Provider ID:', providerId);
+                        const message = `Account created: ${accountId}, User ID: ${userId}, Provider ID: ${providerId}`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * Account login success callback.
+                     */
+                    onAccountConnected: ({ accountId, userId, providerId }) => {
+                        console.log('Account connected: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                        const message = `Account connected: ${accountId}, User ID: ${userId}, Provider ID: ${providerId}`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * Account revoke callback.
+                     */
+                    onAccountRemoved: ({ accountId, userId, providerId }) => {
+                        console.log('Account removed: ', accountId, ' User ID:', userId, ' Provider ID:', providerId)
+                        const message = `Account removed: ${accountId}, User ID: ${userId}, Provider ID: ${providerId}`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * Token expired callback.
+                     */
+                    onTokenExpired: () => {
+                        console.log('Token expired');
+                        const message = `Token expired`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * Smile link SDK close callback.If you want to know which button the user clicked to trigger the close event, you can pass parameters like this. 
+                     * onClose:({reason})=>{} 
+                     * If the value of reason is equal to "close", it means that the user clicked the close icon in the upper right corner of the page to close the SDK
+                     * If the value of reason is equal to "exit", it means that the user clicked the DONE button on the connection page to close the SDK
+                     * If the value of reason is equal to "error", it means that the user clicked the Exit button on the error page to close the SDK
+                     */
+                    onClose: ({ reason }) => {
+                        console.log('Link closed, reason: ', reason)
+                        const message = `Link closed, reason: ${reason}`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * Account connect error callback.
+                     */
+                    onAccountError: ({ accountId, userId, providerId, errorCode }) => {
+                        console.log('Account error: ', accountId, ' User ID:', userId, ' Provider ID:', providerId, 'Error Code:', errorCode)
+                        const message = `Account error: ${accountId}, User ID: ${userId}, Provider ID: ${providerId}, Error Code: ${errorCode}`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * Uploads submit callback.
+                     */
+                    onUploadsCreated: ({ uploads, userId }) => {
+                        console.log('Uploads: ', uploads, ' User ID:', userId);
+                        const message = `onUploadsCreated, Uploads: ${uploads}, User ID: ${userId}`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * Uploads revoke callback.
+                     */
+                    onUploadsRemoved: ({ uploads, userId }) => {
+                        console.log('Uploads: ', uploads, ' User ID:', userId);
+                        const message = `onUploadsRemoved, Uploads: ${uploads}, User ID: ${userId}`;
+                        sendMessageToReactNative(message);
+                    },
+
+                    /**
+                     * User event callback is used to capture all the user activities from Smile Wink SDK
+                     */
+                    onUIEvent: ({ eventName, eventTime, mode, userId, account, archive }) => {
+                        console.log('eventName:', eventName,
+                            "eventTime:", eventTime,
+                            "mode:", mode,
+                            "userId:", userId,
+                            `account:`, account,
+                            `archive:`, archive);
+                        const message = `onUIEvent, eventName: ${eventName}, eventTime: ${eventTime}, mode: ${mode}, userId: ${userId}, account: ${account}, archive: ${archive}`;
+                        sendMessageToReactNative(message);
+                    }
+                });
+                
+                console.log('Opening Smile Link Modal...');
+                smileLinkModal.open();
+                
+            } catch (error) {
+                console.error('Error initializing Smile SDK:', error);
+                showError('Failed to initialize Smile SDK: ' + error.message);
+            }
+        }
+        
+        function sendMessageToReactNative(message) {
+            if (window.ReactNativeWebView) {
+                window.ReactNativeWebView.postMessage(message);
+            } else {
+                console.log('ReactNativeWebView not available, message:', message);
+            }
+        }
+    </script>
+</body>
+
+</html>
