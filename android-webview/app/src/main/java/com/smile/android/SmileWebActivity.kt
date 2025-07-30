@@ -52,6 +52,24 @@ class SmileWebActivity : AppCompatActivity(), SmileBridgeInterface {
                 object : HttpCallBack {
                     override fun onError(errorLog: String) {
                         Log.e("errorLog", errorLog)
+                        runOnUiThread {
+                            wv.loadData("""
+                                <html>
+                                <body style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+                                    <h2 style="color: #e74c3c;">Connection Error</h2>
+                                    <p>Unable to connect to the backend server.</p>
+                                    <p style="font-size: 14px; color: #666;">
+                                        Please ensure your backend server is running at:<br>
+                                        <code>http://10.0.2.2:8000</code> (for emulator)<br>
+                                        <code>http://localhost:8000</code> (for device)
+                                    </p>
+                                    <p style="font-size: 12px; color: #999;">
+                                        Error: $errorLog
+                                    </p>
+                                </body>
+                                </html>
+                            """.trimIndent(), "text/html", "UTF-8")
+                        }
                     }
                     override fun onSuccess(response: String) {
                         Log.d("response", response)

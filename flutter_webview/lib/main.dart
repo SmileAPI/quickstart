@@ -34,6 +34,23 @@ class _MyWebViewState extends State<MyWebView> {
   @override
   void initState() {
     super.initState();
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color(0x00000000))
+      ..setNavigationDelegate(NavigationDelegate(
+        onProgress: (int progress) {},
+        onPageStarted: (String url) {},
+        onPageFinished: (String url) {
+          print('Page finished loading: $url');
+        },
+      ))
+      ..addJavaScriptChannel(
+        'FlutterChannel',
+        onMessageReceived: (JavaScriptMessage message) {
+          print(message.message);
+        },
+      )
+      ..loadFlutterAsset(_htmlFilePath);
   }
 
   @override
@@ -50,25 +67,7 @@ class _MyWebViewState extends State<MyWebView> {
           foregroundColor: const Color(0xFFffffff),
         ),
         body: WebViewWidget(
-          controller: WebViewController()
-            ..setJavaScriptMode(JavaScriptMode.unrestricted)
-            ..setBackgroundColor(const Color(0x00000000))
-            ..loadFlutterAsset(_htmlFilePath)
-            ..setNavigationDelegate(NavigationDelegate(
-              onProgress: (int progress) {},
-              onPageStarted: (String url) {},
-              onPageFinished: (String url) {
-                print('Page finished loading: $url');
-              },
-            ))
-            ..setOnConsoleMessage((JavaScriptConsoleMessage consoleMessage) {
-              debugPrint(
-                  '== JS == ${consoleMessage.level.name}: ${consoleMessage.message}');
-            })
-            ..addJavaScriptChannel("FlutterChannel",
-                onMessageReceived: (message) {
-              print(message.message);
-            }),
+          controller: _controller,
         ));
   }
 }

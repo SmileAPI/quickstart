@@ -12,9 +12,18 @@
 <body>
     <script src="https://web.smileapi.io/v2/smile.v2.js"></script>
     <script type="text/javascript">
-        // if you want running in android emulator, use 10.0.2.2 instead of 127.0.0.1
-        fetch('http://127.0.0.1:8000/api/create_link_token')
-            .then(response => response.json())
+        // Detect if running on Android and use appropriate URL
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const baseUrl = isAndroid ? 'http://10.0.2.2:8000' : 'http://127.0.0.1:8000';
+        console.log('Using API URL:', baseUrl);
+        
+        fetch(`${baseUrl}/api/create_link_token`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 const smileLinkModal = new SmileLinkModal({
 
@@ -122,7 +131,28 @@
                 });
                 smileLinkModal.open();
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error('Failed to load Smile Link Token:', error);
+                const errorMessage = `Error: Unable to connect to server at ${baseUrl}. Please ensure your backend server is running.`;
+                // Send error message to Flutter
+                if (window.FlutterChannel) {
+                    window.FlutterChannel.postMessage(errorMessage);
+                }
+                // Display error in HTML
+                document.body.innerHTML = `
+                    <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+                        <h2 style="color: #e74c3c;">Connection Error</h2>
+                        <p>Unable to connect to the backend server.</p>
+                        <p style="font-size: 14px; color: #666;">
+                            Please ensure your backend server is running at:<br>
+                            <code>${baseUrl}</code>
+                        </p>
+                        <p style="font-size: 12px; color: #999;">
+                            ${error.message}
+                        </p>
+                    </div>
+                `;
+            });
     </script>
 </body>
 
