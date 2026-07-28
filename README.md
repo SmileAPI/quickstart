@@ -135,6 +135,7 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 ```bash
     # iOS
+    export REACT_TERMINAL=Terminal.app
     yarn react-native run-ios
     # if no simulator available, you can try:
     # yarn react-native run-ios --simulator="iPhone <your simulator version>"
