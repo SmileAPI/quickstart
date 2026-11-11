@@ -1,5 +1,7 @@
 ![Smile Banner](https://a-cloud.b-cdn.net/media/iW=2340&iH=726&oX=0&oY=0&cW=2340&cH=726/f814cf1173a99228c8a8fb75f74e9d1b.png)
 
+[English](./README.md) | 简体中文
+
 ## 快速上手 Smile Wink Widget
 
 > 我们在 [Github](https://github.com/SmileAPI/quickstart) 中提供了示例代码，您可以根据自己的需求下载并修改。
@@ -14,10 +16,18 @@
 
 ### 前端
 
--   在 /frontend 目录下，您会看到如何在 Web 端中嵌入 Wink Widget 的示例代码。
--   在 /android-webview 目录下，您会看到如何在 Android WebView 中嵌入 Wink Widget 的示例代码。
--   在 /iOS-webview 目录下，您会看到如何在 iOS WebView 中嵌入 Wink Widget 的示例代码。
--   在 /react-native 目录下，您会看到如何在 React Native WebView 中嵌入 Wink Widget 的示例代码。
+-   启动后访问 <http://localhost:8000/> 是一个菜单页，可直接跳转到 Widget / Shield 的测试页面。
+-   在 /widget 目录下是**全部 Wink 示例**，详见 [README](./widget/README-zh_CN.md)（[English](./widget/README.md)）。
+-   在 /widget/web 目录下，您会看到如何在 Web 端中嵌入 Wink Widget 的示例代码。
+-   在 /widget/android-webview 目录下，您会看到如何在 Android WebView 中嵌入 Wink Widget 的示例代码。
+-   在 /widget/iOS-webview 目录下，您会看到如何在 iOS WebView 中嵌入 Wink Widget 的示例代码。
+-   在 /widget/react-native 目录下，您会看到如何在 React Native WebView 中嵌入 Wink Widget 的示例代码。
+-   在 /shield/web 目录下是 **Shield SDK** 的网页示例，与 Wink 示例共用同一个 demo server，
+    直接打开 `/shield/shield.html` 即可。
+-   在 /shield 目录下是**全部 Shield 示例**：`web/`、`android/`（Kotlin）、`ios/`（SwiftUI）、
+    `react-native/`、`flutter_webview/`。它们都在 WebView（或浏览器）里加载同一个 Shield H5 SDK，
+    并把每个回调原样打印出来（`onProfilingStarted` / `onProfilingFinished` / `onError`）。
+    详见 [README](./shield/README-zh_CN.md)。
 
 ### 运行步骤
 
@@ -85,7 +95,7 @@ node index.js
 
 如果您还没有执行上述实现步骤 1 到 8，请在执行完后，继续执行以下步骤：
 
-1. 在您最喜欢的 IDE 中导入 /android-webview 文件夹(例如:Android Studio)。
+1. 在您最喜欢的 IDE 中导入 /widget/android-webview 文件夹(例如:Android Studio)。
 
 2. 等所有依赖项成功加载后，启动您的应用程序。
 
@@ -93,7 +103,7 @@ node index.js
 
 如果您还没有执行上述实现步骤 1 到 8，请在执行完后，继续执行以下步骤：
 
-1. 在 Xcode 中导入 /iOS-webview 文件夹。
+1. 在 Xcode 中导入 /widget/iOS-webview 文件夹。
 
 2. 等所有依赖项成功加载后，启动您的应用程序。
 
@@ -129,12 +139,12 @@ yarn install
 1. 按照 Flutter [官方安装指南](https://flutter.dev/docs/get-started/install) 配置您的 Flutter 开发环境，以确保您的环境能够正常编译和运行 Flutter 应用程序。
 
 🚨 **注意事项** 🚨
-当你在安卓模拟器上运行项目时，请确保在嵌入的 HTML(`flutter_webview/assets/smile.html`) 文件中的所有请求地址上，将 `127.0.0.1` 更改为 `10.0.2.2`。这是因为安卓模拟器使用 `10.0.2.2` 地址来访问开发机器的 localhost。
+当你在安卓模拟器上运行项目时，请确保在嵌入的 HTML(`widget/flutter_webview/assets/smile.html`) 文件中的所有请求地址上，将 `127.0.0.1` 更改为 `10.0.2.2`。这是因为安卓模拟器使用 `10.0.2.2` 地址来访问开发机器的 localhost。
 
 2. 打开命令行或终端，切换到示例代码的 Flutter 项目目录：
 
 ```bash
-    cd flutter_webview
+    cd widget/flutter_webview
 ```
 
 3. 执行以下命令以获取项目依赖，并准备运行示例的 Flutter 应用：
