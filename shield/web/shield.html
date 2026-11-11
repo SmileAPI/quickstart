@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="smileicon32.webp" sizes="32x32">
+    <link rel="icon" href="smileicon192.webp" sizes="192x192">
+    <title>Smile Shield Quickstart</title>
+    <style>
+        :root {
+            --brand: #0b9758;
+            --ink: #111827;
+            --muted: #6b7280;
+            --line: #e5e7eb;
+            --bg: #f8f9fb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #eef2f6 0%, var(--bg) 40%);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 24px 16px 48px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--brand);
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 12px 40px rgba(17, 24, 39, 0.06);
+        }
+
+        h1 {
+            margin: 0 0 4px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        p.muted {
+            margin: 0 0 18px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--muted);
+        }
+
+        .fields {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 14px 0;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .fields .name {
+            color: var(--ink);
+            font-weight: 700;
+            font-size: 18px;
+            padding-bottom: 8px;
+        }
+
+        .fields .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 4px 0;
+        }
+
+        .fields .row .value {
+            color: var(--ink);
+            font-weight: 500;
+            text-align: right;
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .cta {
+            margin-top: 20px;
+            width: 100%;
+            padding: 15px;
+            border: 0;
+            border-radius: 12px;
+            background: var(--brand);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .cta:disabled {
+            opacity: .55;
+            cursor: default;
+        }
+
+        .switches {
+            display: flex;
+            gap: 18px;
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .switches label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .status {
+            margin-top: 18px;
+            font-size: 13px;
+        }
+
+        .status .line {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--line);
+        }
+
+        .status .line span:last-child {
+            font-weight: 600;
+            color: var(--ink);
+            max-width: 60%;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .log {
+            margin-top: 18px;
+            background: #0b0e13;
+            color: #9ca3af;
+            border-radius: 12px;
+            padding: 12px;
+            height: 200px;
+            overflow-y: auto;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 11px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .log .ok {
+            color: #34d399;
+        }
+
+        .log .err {
+            color: #f87171;
+        }
+
+        .log .ts {
+            color: #4b5563;
+        }
+
+        code {
+            background: #f3f4f6;
+            border-radius: 4px;
+            padding: 1px 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="brand"><span class="dot"></span> Smile Shield</div>
+
+        <section class="card">
+            <h1>Confirm your details</h1>
+            <p class="muted">
+                Before we submit, we run a quick device check to keep fraud out.
+            </p>
+
+            <div class="fields">
+                <div class="name">George</div>
+                <div class="row"><span>Email address</span><span class="value">gpalomero1234@smileapi.io</span></div>
+                <div class="row"><span>Mobile number</span><span class="value">63955991234</span></div>
+                <div class="row"><span>Country code</span><span class="value">PH</span></div>
+            </div>
+
+            <div class="switches">
+                <label>
+                    loading page
+                    <select id="loadingLayout" style="font: inherit; padding: 2px 4px;">
+                        <option value="popup" selected>popup</option>
+                        <option value="page">new page</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="switches">
+                <label style="flex:1">
+                    title
+                    <input id="uiTitle" value="Getting things ready"
+                        style="flex:1; font: inherit; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px;" />
+                </label>
+                <label>
+                    color
+                    <input id="uiColor" type="color" value="#0b9758" style="width: 34px; height: 26px; border: 0; padding: 0;" />
+                </label>
+            </div>
+
+            <button class="cta" id="start">Continue</button>
+
+            <div class="status" id="status" hidden>
+                <div class="line"><span>sessionId</span><span id="stSession">—</span></div>
+                <div class="line"><span>userId</span><span id="stUser">—</span></div>
+                <div class="line"><span>completionSignal</span><span id="stSignal">—</span></div>
+                <div class="line"><span>via / duration</span><span id="stVia">—</span></div>
+            </div>
+        </section>
+
+        <pre class="log" id="log"></pre>
+    </div>
+
+    <!-- Shield SDK (SIT). Swap the host for the production CDN when you deploy. -->
+    <script src="https://web.uat.smileapi.net/shield/v1/shield.v1.js"></script>
+    <script src="./shield.js"></script>
+</body>
+
+</html>

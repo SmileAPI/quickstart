@@ -1,5 +1,7 @@
 ![Smile Banner](https://a-cloud.b-cdn.net/media/iW=2340&iH=726&oX=0&oY=0&cW=2340&cH=726/f814cf1173a99228c8a8fb75f74e9d1b.png)
 
+English | [简体中文](./README-zh_CN.md)
+
 ## Quickstart Sample Implementation
 
 > We provide sample code in [Github](https://github.com/SmileAPI/quickstart) which you can download and modify according to your own requirements.
@@ -14,9 +16,18 @@ The example implementation is composed of two parts:
 
 ### Frontend
 
--   Under /frontend, you will find example code in HTML that already has the Wink Javascript SDK embedded already.
--   Under /android-webview, you will find example code in Android that already has Wink Javascript SDK embedded already.
--   Under /react-native, you will find example code in react-native that already has Wink Javascript SDK embedded already.
+-   Open <http://localhost:8000/> for a menu that links to both test pages.
+-   Under /widget you will find **all Wink samples**; see its [README](./widget/README.md)
+    ([中文](./widget/README-zh_CN.md)).
+-   Under /widget/web, you will find example code in HTML that already has the Wink Javascript SDK embedded already.
+-   Under /widget/android-webview, you will find example code in Android that already has Wink Javascript SDK embedded already.
+-   Under /widget/react-native, you will find example code in react-native that already has Wink Javascript SDK embedded already.
+-   Under /shield/web you will find **`shield.html`**, the **Shield SDK** sample. It is served by the same
+    demo server as the Wink sample, so open `/shield/shield.html` (see below).
+-   Under /shield, you will find **all Shield samples**: `web/`, `android/` (Kotlin), `ios/` (SwiftUI),
+    `react-native/` and `flutter_webview/`. Each hosts the Shield H5 SDK in a WebView (or the browser)
+    and prints every callback payload natively (`onProfilingStarted` / `onProfilingFinished` / `onError`).
+    See its [README](./shield/README.md) ([中文](./shield/README-zh_CN.md)).
 
 ### Implementation steps
 
@@ -103,7 +114,7 @@ LINK_API_HOST=<linkApiURL>
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
-1. Import the /android-webview folder in your favorite IDE(example:Android Studio)
+1. Import the /widget/android-webview folder in your favorite IDE(example:Android Studio)
 
 2. After all dependencies successfully loaded, start the your App.
 
@@ -111,7 +122,7 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
-1. Import the /iOS-webview folder in your Xcode
+1. Import the /widget/iOS-webview folder in your Xcode
 
 2. After all dependencies successfully loaded, start the your App.
 
@@ -119,7 +130,7 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
 
-> In Mac or Linux, you will need to open up the Terminal. If you are using Windows, you can go to the command line. Make sure you are in the /react-native directory of the Quickstart files you just downloaded onto your machine.
+> In Mac or Linux, you will need to open up the Terminal. If you are using Windows, you can go to the command line. Make sure you are in the /widget/react-native directory of the Quickstart files you just downloaded onto your machine.
 
 
 1. Configure the React Native development environment to ensure normal operation [you can find the instructions](https://reactnative.dev/docs/getting-started)
@@ -153,7 +164,7 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 ### Additionally, if you want to use Wink Javascript SDK in Flutter Webview
 
-> In Mac or Linux, you will need to open up the Terminal. If you are using Windows, you can go to the command line. Make sure you are in the /flutter_webview directory of the Quickstart files you just downloaded onto your machine.
+> In Mac or Linux, you will need to open up the Terminal. If you are using Windows, you can go to the command line. Make sure you are in the /widget/flutter_webview directory of the Quickstart files you just downloaded onto your machine.
 
 
 Run the above Implementation Steps 1 to 8 if you haven't done, continue the following steps:
@@ -162,12 +173,12 @@ Run the above Implementation Steps 1 to 8 if you haven't done, continue the foll
 
 🚨 **Attention** 🚨
 
-When running the project on the Android emulator, please ensure to replace `127.0.0.1` with `10.0.2.2` in all request URLs within the embedded HTML files (`flutter_webview/assets/smile.html`). This is because the Android emulator uses the `10.0.2.2` address to access the localhost of the development machine.
+When running the project on the Android emulator, please ensure to replace `127.0.0.1` with `10.0.2.2` in all request URLs within the embedded HTML files (`widget/flutter_webview/assets/smile.html`). This is because the Android emulator uses the `10.0.2.2` address to access the localhost of the development machine.
 
 2. Change to the Flutter project directory:
 
 ```bash
-    cd flutter_webview
+    cd widget/flutter_webview
 ```
 
 3. Run the following commands to fetch the project dependencies and prepare your Flutter application for launch:

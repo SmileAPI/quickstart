@@ -16,7 +16,10 @@ const SMILE_OPEN_API_SIGNATURE = Buffer.from(
 // App
 const app = express();
 app.use(cors());
-app.use(express.static('../frontend'));
+// Landing menu at /, Wink samples under /widget, Shield samples under /shield
+app.use('/', express.static('public'));
+app.use('/widget', express.static('../widget/web'));
+app.use('/shield', express.static('../shield/web'));
 app.get('/api/create_link_token', async (request, response, next) => {
     const post = bent(OPEN_API_HOST, 'POST', 'json', 201);
     const createUserResult = await post(

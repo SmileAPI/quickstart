@@ -120,3 +120,42 @@ dist
 #idea
 .idea/
 *.iml
+
+# ===== Quickstart: OS / editor noise =====
+.DS_Store
+**/.DS_Store
+Thumbs.db
+*.iml
+.idea/
+*.swp
+
+# ===== Quickstart: dotenv (never commit real credentials) =====
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# ===== Quickstart: Android =====
+.gradle/
+**/local.properties
+**/captures/
+**/.cxx/
+**/.externalNativeBuild/
+**/build/
+!**/build.gradle
+!**/build.gradle.kts
+
+# ===== Quickstart: iOS / macOS =====
+**/xcuserdata/
+**/*.xcuserstate
+**/DerivedData/
+**/Pods/
+!**/Podfile.lock
+
+# ===== Quickstart: Flutter / Dart =====
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/.pub-cache/
+**/ephemeral/
